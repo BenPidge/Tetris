@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8832487969649980221}
   - component: {fileID: 8832487969649980220}
   - component: {fileID: 8832487969649980211}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: I-Tetromino
   m_TagString: Untagged
   m_Icon: {fileID: 0}
