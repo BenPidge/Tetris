@@ -10,7 +10,37 @@ PrefabInstance:
     - target: {fileID: 8832487969649980210, guid: 60c0a1a9c9499cd41add6dea1bd9cbaa,
         type: 3}
       propertyPath: m_Name
-      value: T-Tetromino
+      value: T-Tetromino Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832487969649980211, guid: 60c0a1a9c9499cd41add6dea1bd9cbaa,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.36465836
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832487969649980211, guid: 60c0a1a9c9499cd41add6dea1bd9cbaa,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.63970757
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832487969649980211, guid: 60c0a1a9c9499cd41add6dea1bd9cbaa,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.border.w
+      value: 1.3399999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832487969649980211, guid: 60c0a1a9c9499cd41add6dea1bd9cbaa,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.border.x
+      value: 0.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832487969649980211, guid: 60c0a1a9c9499cd41add6dea1bd9cbaa,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.border.y
+      value: 1.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832487969649980211, guid: 60c0a1a9c9499cd41add6dea1bd9cbaa,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.border.z
+      value: 1.89
       objectReference: {fileID: 0}
     - target: {fileID: 8832487969649980211, guid: 60c0a1a9c9499cd41add6dea1bd9cbaa,
         type: 3}
@@ -20,72 +50,82 @@ PrefabInstance:
     - target: {fileID: 8832487969649980211, guid: 60c0a1a9c9499cd41add6dea1bd9cbaa,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
-      value: -1.88
+      value: -1.2032918
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832487969649980211, guid: 60c0a1a9c9499cd41add6dea1bd9cbaa,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
+      value: 0.4214621
       objectReference: {fileID: 0}
     - target: {fileID: 8832487969649980211, guid: 60c0a1a9c9499cd41add6dea1bd9cbaa,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
-      value: -1.8789428
+      value: -1.2015287
       objectReference: {fileID: 0}
     - target: {fileID: 8832487969649980211, guid: 60c0a1a9c9499cd41add6dea1bd9cbaa,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
-      value: 0.26308793
+      value: -0.42911652
       objectReference: {fileID: 0}
     - target: {fileID: 8832487969649980211, guid: 60c0a1a9c9499cd41add6dea1bd9cbaa,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
-      value: -1.0843554
+      value: -0.40613055
       objectReference: {fileID: 0}
     - target: {fileID: 8832487969649980211, guid: 60c0a1a9c9499cd41add6dea1bd9cbaa,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
-      value: 0.2643224
+      value: -0.4287011
       objectReference: {fileID: 0}
     - target: {fileID: 8832487969649980211, guid: 60c0a1a9c9499cd41add6dea1bd9cbaa,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
-      value: -1.0826509
+      value: -0.40491492
       objectReference: {fileID: 0}
     - target: {fileID: 8832487969649980211, guid: 60c0a1a9c9499cd41add6dea1bd9cbaa,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
-      value: -0.47625026
+      value: -1.1709069
       objectReference: {fileID: 0}
     - target: {fileID: 8832487969649980211, guid: 60c0a1a9c9499cd41add6dea1bd9cbaa,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].x
-      value: -0.22672096
+      value: 0.4509406
       objectReference: {fileID: 0}
     - target: {fileID: 8832487969649980211, guid: 60c0a1a9c9499cd41add6dea1bd9cbaa,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
-      value: -0.47498748
+      value: -1.1726581
       objectReference: {fileID: 0}
     - target: {fileID: 8832487969649980211, guid: 60c0a1a9c9499cd41add6dea1bd9cbaa,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].x
-      value: -0.22625029
+      value: 0.4473034
       objectReference: {fileID: 0}
     - target: {fileID: 8832487969649980211, guid: 60c0a1a9c9499cd41add6dea1bd9cbaa,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].y
-      value: 0.26827362
+      value: -0.43552864
       objectReference: {fileID: 0}
     - target: {fileID: 8832487969649980211, guid: 60c0a1a9c9499cd41add6dea1bd9cbaa,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[6].x
-      value: 0.5449957
+      value: 1.2127638
       objectReference: {fileID: 0}
     - target: {fileID: 8832487969649980211, guid: 60c0a1a9c9499cd41add6dea1bd9cbaa,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[6].y
-      value: 0.26753122
+      value: -0.43600044
       objectReference: {fileID: 0}
     - target: {fileID: 8832487969649980211, guid: 60c0a1a9c9499cd41add6dea1bd9cbaa,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[7].x
-      value: 0.54515773
+      value: 1.2127635
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832487969649980211, guid: 60c0a1a9c9499cd41add6dea1bd9cbaa,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[7].y
+      value: 0.4214621
       objectReference: {fileID: 0}
     - target: {fileID: 8832487969649980216, guid: 60c0a1a9c9499cd41add6dea1bd9cbaa,
         type: 3}

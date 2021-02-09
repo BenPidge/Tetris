@@ -27,4 +27,9 @@ public class TetrominoBehaviour : MonoBehaviour
     {
         Move(directionContext.ReadValue<Vector2>());
     }
+    
+    public void onRotate(InputAction.CallbackContext context)
+    {
+        _rigidbody.rotation += 90;
+    }
 }
