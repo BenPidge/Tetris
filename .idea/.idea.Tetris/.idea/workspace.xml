@@ -2,9 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef4c94d8-d46d-4ce7-9555-490c50b9884b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Behaviours/TetrominoBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Behaviours/TetrominoBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/S-Tetromino.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/S-Tetromino.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/projectSettingsUpdater.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/J-Tetromino Variant.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/J-Tetromino Variant.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/L-Tetromino Variant.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/L-Tetromino Variant.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/O-Tetromino Variant.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/O-Tetromino Variant.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/S-Tetromino Variant.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/S-Tetromino Variant.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Floor.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Floor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/I-Tetromino.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/I-Tetromino.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/J-Tetromino.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/J-Tetromino.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/L-Tetromino.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/L-Tetromino.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/O-Tetromino.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/O-Tetromino.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/S-Tetromino.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/S-Tetromino.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/T-Tetromino.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/T-Tetromino.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Z-Tetromino.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Z-Tetromino.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +79,7 @@
       <option name="presentableId" value="Default" />
       <updated>1612623659070</updated>
       <workItem from="1612623680706" duration="1893000" />
-      <workItem from="1612880347132" duration="1466000" />
+      <workItem from="1612880347132" duration="2491000" />
     </task>
     <servers />
   </component>
