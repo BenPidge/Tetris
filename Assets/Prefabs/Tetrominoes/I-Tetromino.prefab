@@ -211,9 +211,9 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &8832487969649980220
 MonoBehaviour:
@@ -227,7 +227,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be3eabaae024504995109ff6d506464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 1
+  moveDistance: 50
+  fallSpeed: 25
 --- !u!60 &8832487969649980211
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -238,7 +239,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -253,11 +254,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.8, y: 1.12}
-      - {x: -1.8499999, y: 1.0699999}
-      - {x: -1.8499999, y: 0.29999998}
-      - {x: -1.8, y: 0.25}
-      - {x: 1.28, y: 0.25}
-      - {x: 1.3199999, y: 0.29}
-      - {x: 1.3199999, y: 1.0699999}
-      - {x: 1.27, y: 1.12}
+    - - {x: -1.5380484, y: 0.4323767}
+      - {x: -1.5880483, y: 0.3823767}
+      - {x: -1.5880483, y: -0.38762328}
+      - {x: -1.5380484, y: -0.4376233}
+      - {x: 1.5419515, y: -0.4376233}
+      - {x: 1.5819516, y: -0.39762327}
+      - {x: 1.5819516, y: 0.3823767}
+      - {x: 1.5319515, y: 0.4323767}
