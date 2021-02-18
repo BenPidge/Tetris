@@ -10,6 +10,13 @@
         <e p="Behaviours" t="Include">
           <e p="TetrominoBehaviour.cs" t="Include" />
         </e>
+        <e p="Commands" t="Include">
+          <e p="Command.cs" t="Include" />
+          <e p="CommandController.cs" t="Include" />
+          <e p="MoveCommand.cs" t="Include" />
+          <e p="RotateCommand.cs" t="Include" />
+          <e p="TetrisEntity.cs" t="Include" />
+        </e>
         <e p="Plugins" t="Include">
           <e p="GitHub" t="Include">
             <e p="Editor" t="Include">

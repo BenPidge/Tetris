@@ -2,14 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef4c94d8-d46d-4ce7-9555-490c50b9884b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/riderModule.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/Command.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/Command.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/CommandController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/CommandController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/MoveCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/MoveCommand.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/RotateCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/RotateCommand.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/TetrisEntity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/TetrisEntity.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Behaviours/TetrominoBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Behaviours/TetrominoBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Floor.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Floor.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/I-Tetromino.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/I-Tetromino.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +28,14 @@
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Behaviours/TetrominoControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Behaviours/TetrisEntity.cs" />
+      <option value="$PROJECT_DIR$/Assets/Behaviours/Command.cs" />
+      <option value="$PROJECT_DIR$/Assets/Behaviours/MoveCommand.cs" />
+      <option value="$PROJECT_DIR$/Assets/Commands/Command.cs" />
+      <option value="$PROJECT_DIR$/Assets/Commands/CommandController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Commands/MoveCommand.cs" />
+      <option value="$PROJECT_DIR$/Assets/Commands/TetrisEntity.cs" />
+      <option value="$PROJECT_DIR$/Assets/Commands/RotateCommand.cs" />
       <option value="$PROJECT_DIR$/Assets/Behaviours/TetrominoBehaviour.cs" />
     </changedPaths>
   </component>
@@ -67,7 +81,8 @@
       <updated>1612623659070</updated>
       <workItem from="1612623680706" duration="1893000" />
       <workItem from="1612880347132" duration="3780000" />
-      <workItem from="1613057154931" duration="9177000" />
+      <workItem from="1613057154931" duration="10231000" />
+      <workItem from="1613662070604" duration="10549000" />
     </task>
     <servers />
   </component>
