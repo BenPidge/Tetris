@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(PolygonCollider2D))]
+[RequireComponent(typeof(CommandController))]
 public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
 {
 
@@ -30,6 +33,11 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         _rotation = _rigidbody.rotation;
         _movingDown = false;
         _onGround = false;
+
+        foreach (var child in gameObject.GetComponentsInChildren<Transform>())
+        {
+            child.SetParent(gameObject.transform, true);
+        }
     }
 
     private void Update()
