@@ -181,8 +181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be3eabaae024504995109ff6d506464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 50
-  fallSpeed: 25
+  moveDistance: 1
+  fallSpeed: 10
 --- !u!60 &3395219406539478394
 PolygonCollider2D:
   m_ObjectHideFlags: 0

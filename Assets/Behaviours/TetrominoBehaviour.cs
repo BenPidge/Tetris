@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,9 +16,9 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
     private CommandController _commandController;
 
     private Vector2 _nextPosition;
-    private float _rotation;
     private bool _movingDown;
     private bool _onGround;
+    private bool _rotate;
 
     private void Awake()
     {
@@ -30,9 +27,9 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         _commandController = gameObject.GetComponent<CommandController>();
         
         _nextPosition = _rigidbody.position;
-        _rotation = _rigidbody.rotation;
         _movingDown = false;
         _onGround = false;
+        _rotate = false;
 
         foreach (var child in gameObject.GetComponentsInChildren<Transform>())
         {
@@ -46,7 +43,12 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         // time if its actively being pushed down, the float otherwise
         Descent(_movingDown ? Time.deltaTime : 0.001f);
         _rigidbody.MovePosition(_nextPosition);
-        _rigidbody.SetRotation(_rotation);
+        
+        if (_rotate)
+        {
+            _rigidbody.SetRotation(_rigidbody.rotation + 45);
+            _rotate = false;
+        }
     }
 
     private void Descent(float dt)
@@ -66,7 +68,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
 
     public void SetRotation(float change)
     {
-        _rotation += change;
+        _rotate = true;
     }
 
     // Input-called methods

@@ -6,6 +6,8 @@
       <change beforePath="$PROJECT_DIR$/Assets/Behaviours/TetrominoBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Behaviours/TetrominoBehaviour.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/I-Tetromino.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/I-Tetromino.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/BlueSquare.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/BlueSquare.png.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +26,8 @@
       <option value="$PROJECT_DIR$/Assets/Commands/Command.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/CommandController.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/MoveCommand.cs" />
-      <option value="$PROJECT_DIR$/Assets/Commands/RotateCommand.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/TetrisEntity.cs" />
+      <option value="$PROJECT_DIR$/Assets/Commands/RotateCommand.cs" />
       <option value="$PROJECT_DIR$/Assets/Behaviours/TetrominoBehaviour.cs" />
     </changedPaths>
   </component>
@@ -73,7 +75,7 @@
       <workItem from="1612880347132" duration="3780000" />
       <workItem from="1613057154931" duration="10231000" />
       <workItem from="1613662070604" duration="10688000" />
-      <workItem from="1614082421830" duration="2833000" />
+      <workItem from="1614082421830" duration="4186000" />
     </task>
     <servers />
   </component>
