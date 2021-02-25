@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CommandController))]
 public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
 {
-
     [SerializeField] private float moveDistance;
     [SerializeField] private float fallSpeed;
     
@@ -16,9 +15,9 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
     private CommandController _commandController;
 
     private Vector2 _nextPosition;
+    private int _numOfRotatePresses;
     private bool _movingDown;
     private bool _onGround;
-    private bool _rotate;
 
     private void Awake()
     {
@@ -29,7 +28,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         _nextPosition = _rigidbody.position;
         _movingDown = false;
         _onGround = false;
-        _rotate = false;
+        _numOfRotatePresses = 0;
 
         foreach (var child in gameObject.GetComponentsInChildren<Transform>())
         {
@@ -43,11 +42,11 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         // time if its actively being pushed down, the float otherwise
         Descent(_movingDown ? Time.deltaTime : 0.001f);
         _rigidbody.MovePosition(_nextPosition);
-        
-        if (_rotate)
+
+        if (_numOfRotatePresses > 0)
         {
-            _rigidbody.SetRotation(_rigidbody.rotation + 45);
-            _rotate = false;
+            _rigidbody.SetRotation((float) Math.Round(_rigidbody.rotation + (90 * _numOfRotatePresses)));
+            _numOfRotatePresses = 0;
         }
     }
 
@@ -58,7 +57,26 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        _onGround = true;
+        var collisionPoint = _collider.ClosestPoint(other.transform.position);
+        Debug.Log(Math.Abs(collisionPoint.x - _collider.bounds.max.x));
+        Debug.Log(Math.Abs(collisionPoint.y - _collider.bounds.max.y));
+        Debug.Log(Math.Abs(collisionPoint.x - _collider.bounds.min.x));
+        Debug.Log(Math.Abs(collisionPoint.y - _collider.bounds.min.y));
+
+        /*if (Math.Abs(collisionPoint.x - _collider.bounds.max.x) > 0.01 &&
+            Math.Abs(collisionPoint.x - _collider.bounds.min.x) > 0.01)
+        {
+            _onGround = true;
+        }*/
+
+        if (!(Math.Abs(collisionPoint.y - _collider.bounds.min.y) > 0.01 &&
+            Math.Abs(collisionPoint.y - _collider.bounds.max.y) > 0.01))
+        {
+            _onGround = true;
+        }
+
+        //_onGround = true;
+        // spit out a notify for LandedItems to use
     }
 
     public void SetNextPosition(float newPosition, int direction)
@@ -66,9 +84,9 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         _nextPosition[direction] += newPosition;
     }
 
-    public void SetRotation(float change)
+    public void IncrementRotates(int num)
     {
-        _rotate = true;
+        _numOfRotatePresses += num;
     }
 
     // Input-called methods
@@ -91,7 +109,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
     {
         if (!_onGround)
         {
-            _commandController.ExecuteCommand(new RotateCommand(this, 90));
+            _commandController.ExecuteCommand(new RotateCommand(this));
         }
     }
 }

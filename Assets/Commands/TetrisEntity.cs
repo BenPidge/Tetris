@@ -3,6 +3,6 @@
 public interface TetrisEntity
 {
     void SetNextPosition(float nextPosition, int direction);
-    void SetRotation(float change);
+    void IncrementRotates(int num);
     
 }

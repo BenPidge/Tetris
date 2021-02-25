@@ -2,12 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef4c94d8-d46d-4ce7-9555-490c50b9884b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Behaviours/LandedItems.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Behaviours/LandedItems.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Behaviours/TetrominoBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Behaviours/TetrominoBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/I-Tetromino.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/I-Tetromino.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Commands/RotateCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Commands/RotateCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Commands/TetrisEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Commands/TetrisEntity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/BlueSquare.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/BlueSquare.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Squares/PurpleSquare.png-autosave.kra" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Squares/PurpleSquare.png-autosave.kra.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +32,7 @@
       <option value="$PROJECT_DIR$/Assets/Commands/MoveCommand.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/TetrisEntity.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/RotateCommand.cs" />
+      <option value="$PROJECT_DIR$/Assets/Behaviours/LandedItems.cs" />
       <option value="$PROJECT_DIR$/Assets/Behaviours/TetrominoBehaviour.cs" />
     </changedPaths>
   </component>
@@ -75,7 +80,8 @@
       <workItem from="1612880347132" duration="3780000" />
       <workItem from="1613057154931" duration="10231000" />
       <workItem from="1613662070604" duration="10688000" />
-      <workItem from="1614082421830" duration="4186000" />
+      <workItem from="1614082421830" duration="4964000" />
+      <workItem from="1614269681722" duration="6216000" />
     </task>
     <servers />
   </component>
