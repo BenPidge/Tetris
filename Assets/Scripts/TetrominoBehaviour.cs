@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CommandController))]
 public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
 {
+    public static event Action<Vector2[], Sprite> Landed;
+    
     [SerializeField] private float moveDistance;
     [SerializeField] private float fallSpeed;
     
@@ -58,27 +60,29 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
     private void OnTriggerEnter2D(Collider2D other)
     {
         var collisionPoint = _collider.ClosestPoint(other.transform.position);
-        Debug.Log(Math.Abs(collisionPoint.x - _collider.bounds.max.x));
-        Debug.Log(Math.Abs(collisionPoint.y - _collider.bounds.max.y));
-        Debug.Log(Math.Abs(collisionPoint.x - _collider.bounds.min.x));
-        Debug.Log(Math.Abs(collisionPoint.y - _collider.bounds.min.y));
-
-        /*if (Math.Abs(collisionPoint.x - _collider.bounds.max.x) > 0.01 &&
-            Math.Abs(collisionPoint.x - _collider.bounds.min.x) > 0.01)
-        {
-            _onGround = true;
-        }*/
-
         if (!(Math.Abs(collisionPoint.y - _collider.bounds.min.y) > 0.01 &&
             Math.Abs(collisionPoint.y - _collider.bounds.max.y) > 0.01))
         {
             _onGround = true;
+            var childRender = GetComponentsInChildren<SpriteRenderer>()[0];
+            Landed?.Invoke(GetSquareVectors(), childRender.sprite);
+            Destroy(gameObject);
         }
-
-        //_onGround = true;
-        // spit out a notify for LandedItems to use
     }
 
+    private Vector2[] GetSquareVectors()
+    {
+        var vectors = new Vector2[4];
+        var x = 0;
+        foreach (Transform child in transform)
+        {
+            vectors[x] = child.position;
+            x++;
+        }
+
+        return vectors;
+    }
+    
     public void SetNextPosition(float newPosition, int direction)
     {
         _nextPosition[direction] += newPosition;

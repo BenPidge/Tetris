@@ -198,11 +198,11 @@ PolygonCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    border: {x: 0.65999997, y: 2.75, z: 1.1999999, w: 1.38}
+    pivot: {x: 0.4476097, y: 0.63752466}
+    oldSize: {x: 5, y: 5}
+    newSize: {x: 5, y: 5}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -235,6 +235,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2516613167283019670}
     m_Modifications:
+    - target: {fileID: 54289495467267291, guid: e0d3775571cb1874f9cd54e61cbf55fe,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e8a260baac1fcd443a00e3e451de67c2,
+        type: 3}
     - target: {fileID: 6144450263140045667, guid: e0d3775571cb1874f9cd54e61cbf55fe,
         type: 3}
       propertyPath: m_RootOrder
@@ -311,6 +317,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2516613167283019670}
     m_Modifications:
+    - target: {fileID: 54289495467267291, guid: e0d3775571cb1874f9cd54e61cbf55fe,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e8a260baac1fcd443a00e3e451de67c2,
+        type: 3}
     - target: {fileID: 6144450263140045667, guid: e0d3775571cb1874f9cd54e61cbf55fe,
         type: 3}
       propertyPath: m_RootOrder
@@ -387,6 +399,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2516613167283019670}
     m_Modifications:
+    - target: {fileID: 54289495467267291, guid: e0d3775571cb1874f9cd54e61cbf55fe,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e8a260baac1fcd443a00e3e451de67c2,
+        type: 3}
     - target: {fileID: 6144450263140045667, guid: e0d3775571cb1874f9cd54e61cbf55fe,
         type: 3}
       propertyPath: m_RootOrder
@@ -463,6 +481,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2516613167283019670}
     m_Modifications:
+    - target: {fileID: 54289495467267291, guid: e0d3775571cb1874f9cd54e61cbf55fe,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e8a260baac1fcd443a00e3e451de67c2,
+        type: 3}
     - target: {fileID: 6144450263140045667, guid: e0d3775571cb1874f9cd54e61cbf55fe,
         type: 3}
       propertyPath: m_RootOrder
