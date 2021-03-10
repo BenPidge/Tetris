@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef4c94d8-d46d-4ce7-9555-490c50b9884b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Behaviours.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Behaviours/LandedItems.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Behaviours/LandedItems.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Behaviours/TetrominoBehaviour.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Behaviours/TetrominoBehaviour.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Behaviours/TetrominoInputs.inputactions" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Behaviours/TetrominoInputs.inputactions.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Squares/BlueSquare.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Squares/BlueSquare.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/I-Tetromino.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/I-Tetromino.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LandedItems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LandedItems.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +33,8 @@
       <option value="$PROJECT_DIR$/Assets/Behaviours/TetrominoBehaviour.cs" />
       <option value="$PROJECT_DIR$/Assets/Behaviours/LandedItems.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/LandedItems.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoBehaviour.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LandedItems.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1o738ZM556PSnip2fUbAcHjyhZL" />
@@ -90,7 +83,8 @@
       <workItem from="1613662070604" duration="10688000" />
       <workItem from="1614082421830" duration="4964000" />
       <workItem from="1614269681722" duration="6632000" />
-      <workItem from="1614869080851" duration="7360000" />
+      <workItem from="1614869080851" duration="7710000" />
+      <workItem from="1615409272920" duration="3287000" />
     </task>
     <servers />
   </component>

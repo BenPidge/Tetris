@@ -59,9 +59,8 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var collisionPoint = _collider.ClosestPoint(other.transform.position);
-        if (!(Math.Abs(collisionPoint.y - _collider.bounds.min.y) > 0.01 &&
-            Math.Abs(collisionPoint.y - _collider.bounds.max.y) > 0.01))
+        if ((Math.Abs(_collider.bounds.min.x - other.bounds.max.x) > 0.01 &&
+            Math.Abs(_collider.bounds.max.x - other.bounds.min.x) > 0.01))
         {
             _onGround = true;
             var childRender = GetComponentsInChildren<SpriteRenderer>()[0];

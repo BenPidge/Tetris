@@ -9,9 +9,13 @@ public class LandedItems : MonoBehaviour
     private SpriteRenderer _sprite;
     private List<GameObject> landedSquares = new List<GameObject>();
 
-    private void OnEnable()
+    private void Awake()
     {
         _sprite = prefab.GetComponent<SpriteRenderer>();
+    }
+
+    private void OnEnable()
+    {
         TetrominoBehaviour.Landed += AddSquares;
     }
 
