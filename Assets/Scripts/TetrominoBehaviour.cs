@@ -21,6 +21,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
     private bool _movingDown;
     private bool _onGround;
     private bool _hasMoved;
+    private bool _alive;
 
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         _commandController = gameObject.GetComponent<CommandController>();
         
         _nextPosition = _rigidbody.position;
+        _alive = true;
         _movingDown = false;
         _onGround = false;
         _hasMoved = false;
@@ -43,6 +45,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
     private void Update()
     {
         if (_onGround) return;
+        if (!_alive) return;
         
         // time if its actively being pushed down, the float otherwise
         Descent(_movingDown ? Time.deltaTime : 0.001f);
@@ -63,13 +66,23 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (!_alive) return;
         if (Math.Abs(_collider.bounds.min.x - other.bounds.max.x) > 0.01 &&
             Math.Abs(_collider.bounds.max.x - other.bounds.min.x) > 0.01)
         {
             _onGround = true;
             var childRender = GetComponentsInChildren<SpriteRenderer>()[0];
-            Landed?.Invoke(GetSquareVectors(), childRender.sprite);
+            try
+            {
+                Landed.Invoke(GetSquareVectors(), childRender.sprite);
+            }
+            catch (NullReferenceException e)
+            {
+                Debug.Log(e);
+            }
+            
             Destroy(gameObject);
+            _alive = false;
         }
     }
 

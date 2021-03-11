@@ -9,6 +9,11 @@ public class TetrominoManager : MonoBehaviour
     [SerializeField] private Vector2 spawnPoint;
     [SerializeField] private List<GameObject> prefabs;
 
+    private void Start()
+    {
+        NewTetromino(null, null);
+    }
+
     private void OnEnable()
     {
         TetrominoBehaviour.Landed += NewTetromino;
