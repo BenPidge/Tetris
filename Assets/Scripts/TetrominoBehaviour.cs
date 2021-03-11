@@ -72,14 +72,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         {
             _onGround = true;
             var childRender = GetComponentsInChildren<SpriteRenderer>()[0];
-            try
-            {
-                Landed.Invoke(GetSquareVectors(), childRender.sprite);
-            }
-            catch (NullReferenceException e)
-            {
-                Debug.Log(e);
-            }
+            Landed?.Invoke(GetSquareVectors(), childRender.sprite);
             
             Destroy(gameObject);
             _alive = false;

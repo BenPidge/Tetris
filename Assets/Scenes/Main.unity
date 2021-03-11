@@ -224,7 +224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c824c81be10646f4f92c3bae7e371e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {x: 0, y: 3.5}
+  highestY: 3
+  spawnPoint: {x: 0, y: 4}
   prefabs:
   - {fileID: 8551482488299758961, guid: eed9703f166f8374797398929ed334b8, type: 3}
   - {fileID: 6984445472413375696, guid: 9307d231fdbc9224bbc2810abc4c0f8b, type: 3}
