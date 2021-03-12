@@ -6,11 +6,11 @@
 
     public override void Execute()
     {
-        _entity.IncrementRotates(1);
+        _entity.SetNextRotate(1);
     }
 
     public override void Undo()
     {
-        _entity.IncrementRotates(-1);
+        _entity.SetNextRotate(-1);
     }
 }

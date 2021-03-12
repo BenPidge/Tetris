@@ -261,18 +261,18 @@
                 },
                 {
                     "name": "",
-                    "id": "a6acf0da-0b90-46ed-85b1-ac208c0e3646",
+                    "id": "81803152-e7aa-4919-927b-428026d11d82",
                     "path": "*/{PrimaryAction}",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad;Touch;Joystick;XR",
+                    "groups": "Gamepad;Touch;XR;Joystick;Keyboard&Mouse",
                     "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "e20e1776-37b9-4339-8b2a-4f73311c9a3a",
+                    "id": "74b42811-83e3-4ad4-be7a-92a8cd9588e2",
                     "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",

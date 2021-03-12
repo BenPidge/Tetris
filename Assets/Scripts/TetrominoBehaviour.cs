@@ -17,7 +17,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
     private CommandController _commandController;
 
     private Vector2 _nextPosition;
-    private int _numOfRotatePresses;
+    private float _nextRotation;
     private bool _movingDown;
     private bool _onGround;
     private bool _hasMoved;
@@ -34,7 +34,6 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         _movingDown = false;
         _onGround = false;
         _hasMoved = false;
-        _numOfRotatePresses = 0;
 
         foreach (var child in gameObject.GetComponentsInChildren<Transform>())
         {
@@ -49,14 +48,13 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         
         // time if its actively being pushed down, the float otherwise
         Descent(_movingDown ? Time.deltaTime : 0.001f);
-        _rigidbody.MovePosition(_nextPosition);
-
-        if (_numOfRotatePresses > 0)
-        {
-            _rigidbody.SetRotation((float) Math.Round(_rigidbody.rotation + (90 * _numOfRotatePresses)));
-            _numOfRotatePresses = 0;
-        }
         _hasMoved = false;
+    }
+
+    private void FixedUpdate()
+    {
+        _rigidbody.MovePosition(_nextPosition);
+        _rigidbody.SetRotation(_nextRotation);
     }
 
     private void Descent(float dt)
@@ -67,6 +65,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!_alive) return;
+        // if the collision isn't the sides of two objects touching
         if (Math.Abs(_collider.bounds.min.x - other.bounds.max.x) > 0.01 &&
             Math.Abs(_collider.bounds.max.x - other.bounds.min.x) > 0.01)
         {
@@ -101,9 +100,9 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         }
     }
 
-    public void IncrementRotates(int num)
+    public void SetNextRotate(int num)
     {
-        _numOfRotatePresses += num;
+        _nextRotation = (_rigidbody.rotation + 90 * num) % 360;
     }
 
     // Input-called methods

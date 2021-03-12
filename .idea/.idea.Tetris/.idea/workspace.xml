@@ -3,12 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="ef4c94d8-d46d-4ce7-9555-490c50b9884b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Squares/BlueSquare.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Squares/BlueSquare.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LandedItems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LandedItems.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Commands/RotateCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Commands/RotateCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Commands/TetrisEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Commands/TetrisEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Squares/Square.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Squares/Square.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoInputs.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoInputs.inputactions" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +19,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TetrominoManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B1BD7821-A9BD-482C-8BEC-887040B89E43/ea/6f946f9a/RaycastHit2D.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -30,13 +30,13 @@
       <option value="$PROJECT_DIR$/Assets/Commands/Command.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/CommandController.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/MoveCommand.cs" />
-      <option value="$PROJECT_DIR$/Assets/Commands/TetrisEntity.cs" />
-      <option value="$PROJECT_DIR$/Assets/Commands/RotateCommand.cs" />
       <option value="$PROJECT_DIR$/Assets/Behaviours/TetrominoBehaviour.cs" />
       <option value="$PROJECT_DIR$/Assets/Behaviours/LandedItems.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoBehaviour.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LandedItems.cs" />
+      <option value="$PROJECT_DIR$/Assets/Commands/RotateCommand.cs" />
+      <option value="$PROJECT_DIR$/Assets/Commands/TetrisEntity.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoBehaviour.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1o738ZM556PSnip2fUbAcHjyhZL" />
@@ -87,7 +87,8 @@
       <workItem from="1614269681722" duration="6632000" />
       <workItem from="1614869080851" duration="7710000" />
       <workItem from="1615409272920" duration="3287000" />
-      <workItem from="1615471022073" duration="8607000" />
+      <workItem from="1615471022073" duration="9442000" />
+      <workItem from="1615557498026" duration="6799000" />
     </task>
     <servers />
   </component>
