@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ef4c94d8-d46d-4ce7-9555-490c50b9884b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Commands/RotateCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Commands/RotateCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Commands/TetrisEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Commands/TetrisEntity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Squares/Square.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Squares/Square.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoInputs.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoInputs.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,10 +31,10 @@
       <option value="$PROJECT_DIR$/Assets/Commands/MoveCommand.cs" />
       <option value="$PROJECT_DIR$/Assets/Behaviours/TetrominoBehaviour.cs" />
       <option value="$PROJECT_DIR$/Assets/Behaviours/LandedItems.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LandedItems.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/RotateCommand.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/TetrisEntity.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoBehaviour.cs" />
     </changedPaths>
   </component>
@@ -88,7 +87,8 @@
       <workItem from="1614869080851" duration="7710000" />
       <workItem from="1615409272920" duration="3287000" />
       <workItem from="1615471022073" duration="9442000" />
-      <workItem from="1615557498026" duration="6799000" />
+      <workItem from="1615557498026" duration="7398000" />
+      <workItem from="1615642629176" duration="1343000" />
     </task>
     <servers />
   </component>

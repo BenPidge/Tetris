@@ -9,7 +9,8 @@ public class TetrominoManager : MonoBehaviour
     [SerializeField] private float highestY;
     [SerializeField] private Vector2 spawnPoint;
     [SerializeField] private List<GameObject> prefabs;
-
+    [SerializeField] public float fallSpeed;
+    
     private static bool _gameOver;
     
     private void Start()

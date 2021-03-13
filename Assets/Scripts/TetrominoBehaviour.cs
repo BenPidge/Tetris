@@ -10,8 +10,8 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
     public static event Action<Vector2[], Sprite> Landed;
     
     [SerializeField] private float moveDistance;
-    [SerializeField] private float fallSpeed;
     
+    private float _fallSpeed;
     private Rigidbody2D _rigidbody;
     private PolygonCollider2D _collider;
     private CommandController _commandController;
@@ -28,6 +28,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
         _collider = gameObject.GetComponent<PolygonCollider2D>();
         _commandController = gameObject.GetComponent<CommandController>();
+        _fallSpeed = GameObject.Find("TetrominoManager").GetComponent<TetrominoManager>().fallSpeed;
         
         _nextPosition = _rigidbody.position;
         _alive = true;
@@ -57,9 +58,16 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         _rigidbody.SetRotation(_nextRotation);
     }
 
+
+
+    public void SetFallSpeed(float newFallSpeed)
+    {
+        _fallSpeed = newFallSpeed;
+    }
+    
     private void Descent(float dt)
     {
-        _commandController.ExecuteCommand(new MoveCommand(this, fallSpeed, dt, 1));
+        _commandController.ExecuteCommand(new MoveCommand(this, _fallSpeed, dt, 1));
     }
 
     private void OnTriggerEnter2D(Collider2D other)
