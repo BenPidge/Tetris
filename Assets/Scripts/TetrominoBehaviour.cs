@@ -11,13 +11,15 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
     
     [SerializeField] private float moveDistance;
     
-    private float _fallSpeed;
     private Rigidbody2D _rigidbody;
     private PolygonCollider2D _collider;
     private CommandController _commandController;
 
     private Vector2 _nextPosition;
+    private float _lastFallTime;
     private float _nextRotation;
+    private float _fallSpeed;
+    
     private bool _movingDown;
     private bool _onGround;
     private bool _hasMoved;
@@ -31,6 +33,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         _fallSpeed = GameObject.Find("TetrominoManager").GetComponent<TetrominoManager>().fallSpeed;
         
         _nextPosition = _rigidbody.position;
+        _lastFallTime = Time.time;
         _alive = true;
         _movingDown = false;
         _onGround = false;
@@ -48,7 +51,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         if (!_alive) return;
         
         // time if its actively being pushed down, the float otherwise
-        Descent(_movingDown ? Time.deltaTime : 0.001f);
+        Descent(_movingDown ? 1 : 0.25f);
         _hasMoved = false;
     }
 
@@ -58,16 +61,15 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         _rigidbody.SetRotation(_nextRotation);
     }
 
-
-
-    public void SetFallSpeed(float newFallSpeed)
-    {
-        _fallSpeed = newFallSpeed;
-    }
+    
     
     private void Descent(float dt)
     {
-        _commandController.ExecuteCommand(new MoveCommand(this, _fallSpeed, dt, 1));
+        if (Time.time - _lastFallTime >= _fallSpeed /(4 * dt))
+        {
+            _commandController.ExecuteCommand(new MoveCommand(this, 1, 1, 1));
+            _lastFallTime = Time.time;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
