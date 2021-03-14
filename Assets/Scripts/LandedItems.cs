@@ -6,10 +6,10 @@ using UnityEngine;
 public class LandedItems : MonoBehaviour
 {
     public static event Action<float> TetrominoPlaced;
+    public List<GameObject> landedSquares = new List<GameObject>();
     
     [SerializeField] private GameObject prefab;
     private SpriteRenderer _sprite;
-    private List<GameObject> landedSquares = new List<GameObject>();
 
     private void Awake()
     {
@@ -36,7 +36,7 @@ public class LandedItems : MonoBehaviour
             var nextSquare = Instantiate(prefab,
                 position, Quaternion.identity);
             nextSquare.transform.SetParent(gameObject.transform);
-            landedSquares.Append(nextSquare);
+            landedSquares.Add(nextSquare);
 
             var collider = nextSquare.GetComponent<BoxCollider2D>();
             if (collider.bounds.max.y > highestY && Math.Abs(collider.transform.position.x) < 1)

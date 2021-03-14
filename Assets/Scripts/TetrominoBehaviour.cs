@@ -133,7 +133,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
     
     public void OnRotate(InputAction.CallbackContext context)
     {
-        if (!_onGround)
+        if (!_onGround && context.performed)
         {
             _commandController.ExecuteCommand(new RotateCommand(this));
         }

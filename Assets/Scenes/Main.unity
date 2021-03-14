@@ -524,9 +524,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6893841743105310362, guid: 56b69ebd33c59df4db7dc60ae532583a,
         type: 3}
+      propertyPath: lineWidth
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893841743105310362, guid: 56b69ebd33c59df4db7dc60ae532583a,
+        type: 3}
       propertyPath: spawnPoint.y
       value: 4.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6893841743105310362, guid: 56b69ebd33c59df4db7dc60ae532583a,
+        type: 3}
+      propertyPath: prefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 782439834552179180, guid: 0ccf5a1818438e144a60e36b6f8425e1,
+        type: 3}
     - target: {fileID: 6893841743105310363, guid: 56b69ebd33c59df4db7dc60ae532583a,
         type: 3}
       propertyPath: m_RootOrder

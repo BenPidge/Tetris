@@ -5,7 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Squares/Square.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Squares/Square.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LandedItems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LandedItems.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,11 +31,11 @@
       <option value="$PROJECT_DIR$/Assets/Commands/MoveCommand.cs" />
       <option value="$PROJECT_DIR$/Assets/Behaviours/TetrominoBehaviour.cs" />
       <option value="$PROJECT_DIR$/Assets/Behaviours/LandedItems.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/LandedItems.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/RotateCommand.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/TetrisEntity.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoBehaviour.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LandedItems.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1o738ZM556PSnip2fUbAcHjyhZL" />
@@ -87,7 +88,8 @@
       <workItem from="1615409272920" duration="3287000" />
       <workItem from="1615471022073" duration="9442000" />
       <workItem from="1615557498026" duration="7398000" />
-      <workItem from="1615642629176" duration="2786000" />
+      <workItem from="1615642629176" duration="3384000" />
+      <workItem from="1615737981897" duration="2432000" />
     </task>
     <servers />
   </component>
