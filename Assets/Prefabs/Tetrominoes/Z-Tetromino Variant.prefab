@@ -56,7 +56,7 @@ PrefabInstance:
     - target: {fileID: 4756223524566238268, guid: bb6fa1b71c1463d45a629e9bb5062eca,
         type: 3}
       propertyPath: moveDistance
-      value: 0.9
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5074466317822579098, guid: bb6fa1b71c1463d45a629e9bb5062eca,
         type: 3}

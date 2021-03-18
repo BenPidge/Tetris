@@ -19,7 +19,7 @@ public class TetrominoManager : MonoBehaviour
     {
         _gameOver = false;
         NewTetromino(null, null);
-        _landedItems = GameObject.Find("LandedItems").GetComponent<LandedItems>();
+        _landedItems = FindObjectOfType<LandedItems>();
     }
 
     private void OnEnable()
@@ -31,7 +31,7 @@ public class TetrominoManager : MonoBehaviour
     private void OnDisable()
     {
         TetrominoBehaviour.Landed -= NewTetromino;
-        LandedItems.TetrominoPlaced += CheckProgress;
+        LandedItems.TetrominoPlaced -= CheckProgress;
     }
 
     private void NewTetromino(Vector2[] vectors, Sprite sprite)
@@ -39,8 +39,7 @@ public class TetrominoManager : MonoBehaviour
         if (_gameOver) return;
 
         var prefabPos = Random.Range(0, 7);
-        Instantiate(prefabs[prefabPos],
-            spawnPoint, Quaternion.identity);
+        Instantiate(prefabs[prefabPos], spawnPoint, Quaternion.identity);
     }
 
     private void CheckProgress(float highestBlockY)

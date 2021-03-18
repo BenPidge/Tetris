@@ -1,4 +1,5 @@
 ﻿using System;
+using Packages.Rider.Editor.UnitTesting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,6 +16,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
     private PolygonCollider2D _collider;
     private CommandController _commandController;
 
+    private RaycastHit2D[] _raycastResults = new RaycastHit2D[10];
     private Vector2 _nextPosition;
     private float _lastFallTime;
     private float _nextRotation;
@@ -30,7 +32,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
         _collider = gameObject.GetComponent<PolygonCollider2D>();
         _commandController = gameObject.GetComponent<CommandController>();
-        _fallSpeed = GameObject.Find("TetrominoManager").GetComponent<TetrominoManager>().fallSpeed;
+        _fallSpeed = FindObjectOfType<TetrominoManager>().fallSpeed;
         
         _nextPosition = _rigidbody.position;
         _lastFallTime = Time.time;
@@ -83,8 +85,8 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
             var childRender = GetComponentsInChildren<SpriteRenderer>()[0];
             Landed?.Invoke(GetSquareVectors(), childRender.sprite);
             
-            Destroy(gameObject);
             _alive = false;
+            Destroy(gameObject);
         }
     }
 
@@ -113,6 +115,24 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
     public void SetNextRotate(int num)
     {
         _nextRotation = (_rigidbody.rotation + 90 * num) % 360;
+        int calculation = (int) (_nextRotation / 90);
+        Vector2 rotationDirection 
+            = calculation % 2 == 0 ? new Vector2(0, calculation-1) : new Vector2(2-calculation, 0);
+
+        int numRays = Physics2D.RaycastNonAlloc(_rigidbody.position, rotationDirection, _raycastResults, 
+                                             _collider.bounds.max.y - _collider.bounds.center.y);
+        Debug.Log(rotationDirection*(_collider.bounds.max.y - _collider.bounds.center.y));
+        
+        foreach (var ray in _raycastResults)
+        {
+            Debug.DrawRay(ray.centroid, ray.distance*rotationDirection, Color.black, 2);
+        }
+        
+        Debug.Log(numRays);
+        if (numRays > 3)
+        {
+            _nextRotation = _rigidbody.rotation;
+        }
     }
 
     // Input-called methods
