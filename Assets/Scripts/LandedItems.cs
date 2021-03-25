@@ -31,17 +31,20 @@ public class LandedItems : MonoBehaviour
         _sprite.sprite = colour;
         float highestY = -200;
         
-        foreach (var position in positions)
+        for (int i = 0; i < positions.Length; i++)
         {
-            var nextSquare = Instantiate(prefab,
+            // rounds the positions to the nearest 0.5
+            Vector2 position = new Vector2((float) Math.Round(2*positions[i].x)/2, 
+                (float) Math.Round(2*positions[i].y)/2);
+            GameObject nextSquare = Instantiate(prefab,
                 position, Quaternion.identity);
             nextSquare.transform.SetParent(gameObject.transform);
             landedSquares.Add(nextSquare);
 
-            var collider = nextSquare.GetComponent<BoxCollider2D>();
-            if (collider.bounds.max.y > highestY && Math.Abs(collider.transform.position.x) < 1)
+            BoxCollider2D squareCollider = nextSquare.GetComponent<BoxCollider2D>();
+            if (squareCollider.bounds.max.y > highestY && Math.Abs(squareCollider.transform.position.x) < 1)
             {
-                highestY = collider.bounds.max.y;
+                highestY = squareCollider.bounds.max.y;
             }
         }
         

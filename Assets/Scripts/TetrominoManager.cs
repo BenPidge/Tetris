@@ -38,7 +38,7 @@ public class TetrominoManager : MonoBehaviour
     {
         if (_gameOver) return;
 
-        var prefabPos = Random.Range(0, 7);
+        int prefabPos = Random.Range(0, prefabs.Count);
         Instantiate(prefabs[prefabPos], spawnPoint, Quaternion.identity);
     }
 
@@ -48,18 +48,19 @@ public class TetrominoManager : MonoBehaviour
         {
             _gameOver = true;
         }
-        checkLines();
+        CheckLines();
     }
 
-    private void checkLines()
+    private void CheckLines()
     {
         // rows uses the y coordinate key to link to a counter of items in that row
+        // consider not using a dict or the exact y value(round errors)
         var rows = new Dictionary<float, int>();
         var fullRows = new List<float>();
         
-        foreach (var item in _landedItems.landedSquares)
+        for (int i = 0; i < _landedItems.landedSquares.Count; i++)
         {
-            var pos = item.transform.position.y;
+            float pos = _landedItems.landedSquares[i].transform.position.y;
             if (rows.ContainsKey(pos))
             {
                 rows[pos] += 1;
@@ -75,13 +76,13 @@ public class TetrominoManager : MonoBehaviour
             }
         }
 
-        foreach (var row in fullRows)
+        for (int i = 0; i < fullRows.Count; i++)
         {
-            clearRow(row);
+            ClearRow(fullRows[i]);
         }
     }
 
-    private void clearRow(float row)
+    private void ClearRow(float row)
     {
         Debug.Log(row);
         //implement me

@@ -62,20 +62,16 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
 
         // time if its actively being pushed down, the float otherwise
         Descent(_movingDown ? enhancedFallSpeedMod : defaultFallSpeedMod);
-        _hasMoved = false;
-    }
-
-    private void FixedUpdate()
-    {
         _rigidbody.MovePosition(_nextPosition);
         _rigidbody.SetRotation(_nextRotation);
+        _hasMoved = false;
     }
 
 
 
     private void Descent(float dt)
     {
-        if (Time.time - _lastFallTime >= _fallSpeed / (4 * dt))
+        if (Time.time - _lastFallTime >= _fallSpeed / dt)
         {
             _commandController.ExecuteCommand(new MoveCommand(this, 1, 1, 1));
             _lastFallTime = Time.time;
@@ -90,7 +86,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
             Math.Abs(_collider.bounds.max.x - other.bounds.min.x) > 0.01)
         {
             _onGround = true;
-            var childRender = GetComponentsInChildren<SpriteRenderer>()[0];
+            SpriteRenderer childRender = GetComponentsInChildren<SpriteRenderer>()[0];
             Landed?.Invoke(GetSquareVectors(), childRender.sprite);
 
             _alive = false;
@@ -100,8 +96,8 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
 
     private Vector2[] GetSquareVectors()
     {
-        var vectors = new Vector2[4];
-        var x = 0;
+        Vector2[] vectors = new Vector2[4];
+        int x = 0;
         foreach (Transform child in transform)
         {
             vectors[x] = child.position;
@@ -127,10 +123,10 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         Vector2 rotationDirection
             = calculation % 2 == 0 ? new Vector2(0, calculation - 1) : new Vector2(2 - calculation, 0);
 
-        var numValidArrays = CheckRotate(rotationDirection, _collider.bounds.max.y);
-        numValidArrays += CheckRotate(rotationDirection, _collider.bounds.min.y);
+        int numValidRays = CheckRotate(rotationDirection, _collider.bounds.max.y);
+        numValidRays += CheckRotate(rotationDirection, _collider.bounds.min.y);
 
-        if (numValidArrays > 0)
+        if (numValidRays > 0)
         {
             _nextRotation = _rigidbody.rotation;
         }
@@ -142,24 +138,23 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
             Math.Abs(yBounds - _collider.bounds.center.y));
 
         // for every ray, subtract one from the number of valid arrays if it's colliding with itself
-        int numValidArrays = numRays;
-        for (var i = 0; i < numRays; i++)
+        int numValidRays = numRays;
+        for (int i = 0; i < numRays; i++)
         {
             RaycastHit2D ray = _raycastResults[i];
             if (ray.transform.IsChildOf(_transform))
             {
-                numValidArrays--;
+                numValidRays--;
             }
         }
-        return numValidArrays;
+        return numValidRays;
     }
 
 // Input-called methods
     public void OnMove(InputAction.CallbackContext directionContext)
     {
         if (_onGround) return;
-        var direction = directionContext.ReadValue<Vector2>();
-        _movingDown = (direction.y < 0);
+        Vector2 direction = directionContext.ReadValue<Vector2>();
         if (direction.y < 0)
         {
             _movingDown = true;
