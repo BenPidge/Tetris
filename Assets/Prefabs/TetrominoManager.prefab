@@ -47,8 +47,8 @@ MonoBehaviour:
   spawnPoint: {x: 0.5, y: 4.5}
   prefabs:
   - {fileID: 8551482488299758961, guid: eed9703f166f8374797398929ed334b8, type: 3}
-  - {fileID: 6984445472413375696, guid: 9307d231fdbc9224bbc2810abc4c0f8b, type: 3}
-  - {fileID: 2032281757345693, guid: bb6fa1b71c1463d45a629e9bb5062eca, type: 3}
+  - {fileID: 1859468913345681923, guid: 35de0f1e4ff6a8f4d951f8d3856a8fbc, type: 3}
+  - {fileID: 440188892551962292, guid: 521047f4f00fb4e42b37141d04ded053, type: 3}
   - {fileID: 5180550294832284345, guid: 6630510231d2fda49a7fa52238c492e6, type: 3}
   - {fileID: 7174054639933417485, guid: 17463bcfd9a224645a8338e3f2042607, type: 3}
   - {fileID: 4174449227811596875, guid: acc4041580475ed4d8283ee1ef8f49ab, type: 3}

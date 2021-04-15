@@ -50,4 +50,45 @@ public class LandedItems : MonoBehaviour
         
         TetrominoPlaced?.Invoke(highestY);
     }
+
+    public void RemoveRow(int yVal)
+    {
+        List<Tuple<GameObject, int>> row = RowContents(yVal);
+        List<int> indexesToRemove = new List<int>();
+        
+        for (int i = 0; i < row.Count; i++)
+        {
+            GameObject tetromino = row[i].Item1;
+            indexesToRemove.Add(row[i].Item2);
+            Destroy(tetromino);
+        }
+        indexesToRemove.Sort((a, b) => b.CompareTo(a));
+        
+        for (int i = 0; i < indexesToRemove.Count; i++)
+        {
+            landedSquares.RemoveAt(indexesToRemove[i]);
+        }
+    }
+
+    public void LowerRow(int yVal)
+    {
+        List<Tuple<GameObject, int>> row = RowContents(yVal);
+        for (int i = 0; i < row.Count; i++)
+        {
+            row[i].Item1.transform.Translate(0, -1, 0);
+        }
+    }
+
+    private List<Tuple<GameObject, int>> RowContents(int yVal)
+    {
+        List<Tuple<GameObject, int>> contents = new List<Tuple<GameObject, int>>();
+        for (int i = 0; i < landedSquares.Count; i++)
+        {
+            if ((int) Math.Round(landedSquares[i].transform.position.y) == yVal)
+            {
+                contents.Add(new Tuple<GameObject, int>(landedSquares[i], i));
+            }
+        }
+        return contents;
+    }
 }
