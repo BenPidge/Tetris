@@ -3,16 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ef4c94d8-d46d-4ce7-9555-490c50b9884b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Commands/MoveCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Commands/MoveCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Squares/Square.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Squares/Square.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/TetrominoManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/TetrominoManager.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/I-Tetromino.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/I-Tetromino.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/J-Tetromino.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/J-Tetromino.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/J-Tetromino.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/J-Tetromino.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/L-Tetromino Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/L-Tetromino Variant.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/L-Tetromino Variant.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/L-Tetromino Variant.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/S-Tetromino Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/S-Tetromino Variant.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LandedItems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LandedItems.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoBehaviour.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,14 +28,14 @@
       <option value="$PROJECT_DIR$/Assets/Behaviours/MoveCommand.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/Command.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/CommandController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Commands/MoveCommand.cs" />
       <option value="$PROJECT_DIR$/Assets/Behaviours/TetrominoBehaviour.cs" />
       <option value="$PROJECT_DIR$/Assets/Behaviours/LandedItems.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/RotateCommand.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/TetrisEntity.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoBehaviour.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LandedItems.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoBehaviour.cs" />
+      <option value="$PROJECT_DIR$/Assets/Commands/MoveCommand.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1o738ZM556PSnip2fUbAcHjyhZL" />
@@ -99,7 +93,9 @@
       <workItem from="1615763399465" duration="1468000" />
       <workItem from="1616080302984" duration="8334000" />
       <workItem from="1616684339200" duration="5746000" />
-      <workItem from="1618491133648" duration="12050000" />
+      <workItem from="1618491133648" duration="16698000" />
+      <workItem from="1618996604266" duration="3737000" />
+      <workItem from="1619022162879" duration="3241000" />
     </task>
     <servers />
   </component>

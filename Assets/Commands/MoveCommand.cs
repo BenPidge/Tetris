@@ -17,7 +17,7 @@ public class MoveCommand : Command
     {
         // fallMultiplier is 1 for x axis, or -1 for y axis
         // this is used to ensure that y is always negative
-        var fallMultiplier = (_axis * -2 + 1);
+        int fallMultiplier = (_axis * -2 + 1);
         _entity.SetNextPosition(_direction * _moveDistance * fallMultiplier, _axis);
     }
 
