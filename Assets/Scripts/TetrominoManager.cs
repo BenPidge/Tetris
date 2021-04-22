@@ -6,11 +6,14 @@ using Random = UnityEngine.Random;
 
 public class TetrominoManager : MonoBehaviour
 {
+    public static event Action<int> RowCleared;
+    
     [SerializeField] private float highestY;
     [SerializeField] private Vector2 spawnPoint;
     [SerializeField] private List<GameObject> prefabs;
     [SerializeField] public float fallSpeed;
     [SerializeField] public int lineWidth;
+    [SerializeField] public int rowScoreInc;
 
     public bool _linesInProgress;
     private static bool _gameOver;
@@ -92,6 +95,7 @@ public class TetrominoManager : MonoBehaviour
     private void ClearRow(int row)
     {
         _landedItems.RemoveRow(row);
+        RowCleared?.Invoke(rowScoreInc);
         int highestPotentialRow = (int) Math.Round(highestY);
         if (row < highestPotentialRow)
         {
