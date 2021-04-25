@@ -1,16 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
+[RequireComponent(typeof(TextMeshProUGUI))]
 public class UIManager : MonoBehaviour
 {
-    public int Score { private set; get; }
+    private int _score;
+    private TextMeshProUGUI _pointsText;
 
     private void Awake()
     {
-        Score = 0;
+        _score = 0;
+        _pointsText = GetComponent<TextMeshProUGUI>();
     }
 
+    private void SetPointsText()
+    {
+        _pointsText.text = "Points: " + _score;
+    }
+    
     private void OnEnable()
     {
         TetrominoManager.RowCleared += IncrementScore;
@@ -23,6 +32,8 @@ public class UIManager : MonoBehaviour
     
     private void IncrementScore(int increment)
     {
-        Score += increment;
+        _score += increment;
+        SetPointsText();
     }
+    
 }

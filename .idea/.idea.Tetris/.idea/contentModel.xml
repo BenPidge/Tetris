@@ -40,10 +40,12 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="LandedItems.cs" t="Include" />
-          <e p="TetrominoBehaviour.cs" t="Include" />
-          <e p="TetrominoManager.cs" t="Include" />
-          <e p="UIManager.cs" t="Include" />
+          <e p="PointsManager.cs" t="Include" />
+          <e p="TetrominoScripts" t="Include">
+            <e p="LandedItems.cs" t="Include" />
+            <e p="TetrominoBehaviour.cs" t="Include" />
+            <e p="TetrominoManager.cs" t="Include" />
+          </e>
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">
