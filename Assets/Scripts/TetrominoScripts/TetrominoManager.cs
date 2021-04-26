@@ -9,20 +9,19 @@ public class TetrominoManager : MonoBehaviour
     public static event Action<int> RowCleared;
     
     [SerializeField] private float highestY;
-    [SerializeField] private Vector2 spawnPoint;
+    [SerializeField] public Vector2 spawnPoint;
     [SerializeField] private List<GameObject> prefabs;
     [SerializeField] public float fallSpeed;
+    [SerializeField] public float fallSpeedIncrease;
     [SerializeField] public int lineWidth;
     [SerializeField] public int rowScoreInc;
 
-    public bool _linesInProgress;
     private static bool _gameOver;
     private LandedItems _landedItems;
     private Dictionary<int, int> _rows;
     
     private void Start()
     {
-        _linesInProgress = false;
         _gameOver = false;
         NewTetromino(null, null);
         _landedItems = FindObjectOfType<LandedItems>();
@@ -41,6 +40,16 @@ public class TetrominoManager : MonoBehaviour
         LandedItems.TetrominoPlaced -= CheckProgress;
     }
 
+    public void IncreaseFallSpeed()
+    {
+        fallSpeed += fallSpeedIncrease;
+    }
+
+    public void GameOver()
+    {
+        _gameOver = true;
+    }
+    
     private void NewTetromino(Vector2[] vectors, Sprite sprite)
     {
         if (_gameOver) return;
@@ -62,13 +71,12 @@ public class TetrominoManager : MonoBehaviour
     {
         // rows uses the y coordinate key to link to a counter of items in that row
         // the y coordinate is rounded to avoid minor inaccuracies
-        _linesInProgress = true;
         _rows.Clear();
         List<int> fullRows = new List<int>();
         
         for (int i = 0; i < _landedItems.landedSquares.Count; i++)
         {
-            int pos = (int) Math.Round(_landedItems.landedSquares[i].transform.position.y);
+            int pos = (int) Math.Floor(_landedItems.landedSquares[i].transform.position.y);
             if (_rows.ContainsKey(pos))
             {
                 _rows[pos] += 1;
@@ -88,21 +96,16 @@ public class TetrominoManager : MonoBehaviour
         {
             ClearRow(fullRows[i]);
         }
-
-        _linesInProgress = false;
     }
 
     private void ClearRow(int row)
     {
         _landedItems.RemoveRow(row);
-        RowCleared?.Invoke(rowScoreInc);
-        int highestPotentialRow = (int) Math.Round(highestY);
-        if (row < highestPotentialRow)
+        int highestPotentialRow = (int) Math.Floor(highestY);
+        for (int i = row + 1; i <= highestPotentialRow; i++)
         {
-            for (int i = row + 1; i <= highestPotentialRow; i++)
-            {
-                _landedItems.LowerRow(i);
-            }
+            _landedItems.LowerRow(i);
         }
+        RowCleared?.Invoke(rowScoreInc);
     }
 }

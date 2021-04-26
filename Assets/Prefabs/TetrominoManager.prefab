@@ -54,6 +54,6 @@ MonoBehaviour:
   - {fileID: 4174449227811596875, guid: acc4041580475ed4d8283ee1ef8f49ab, type: 3}
   - {fileID: 3347208691523534684, guid: bca6dfd96ebe61940a77ca51856658d1, type: 3}
   fallSpeed: 1
+  fallSpeedIncrease: 0.25
   lineWidth: 19
   rowScoreInc: 100
-  _linesInProgress: 0

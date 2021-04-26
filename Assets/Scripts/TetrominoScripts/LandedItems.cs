@@ -26,22 +26,24 @@ public class LandedItems : MonoBehaviour
         TetrominoBehaviour.Landed -= AddSquares;
     }
 
-    public void AddSquares(Vector2[] positions, Sprite colour)
+    private void AddSquares(Vector2[] positions, Sprite colour)
     {
         _sprite.sprite = colour;
         float highestY = -200;
+        BoxCollider2D squareCollider;
         
         for (int i = 0; i < positions.Length; i++)
         {
             // rounds the positions to the nearest 0.5
+            // the y value is done in a different way to ensure consistency
             Vector2 position = new Vector2((float) Math.Round(2*positions[i].x)/2, 
-                (float) Math.Round(2*positions[i].y)/2);
+                (float) (Math.Floor(positions[i].y) + 0.5));
             GameObject nextSquare = Instantiate(prefab,
                 position, Quaternion.identity);
             nextSquare.transform.SetParent(gameObject.transform);
             landedSquares.Add(nextSquare);
 
-            BoxCollider2D squareCollider = nextSquare.GetComponent<BoxCollider2D>();
+            squareCollider = nextSquare.GetComponent<BoxCollider2D>();
             if (squareCollider.bounds.max.y > highestY && Math.Abs(squareCollider.transform.position.x) < 1)
             {
                 highestY = squareCollider.bounds.max.y;
@@ -69,13 +71,13 @@ public class LandedItems : MonoBehaviour
             landedSquares.RemoveAt(indexesToRemove[i]);
         }
     }
-
+    
     public void LowerRow(int yVal)
     {
         List<Tuple<GameObject, int>> row = RowContents(yVal);
         for (int i = 0; i < row.Count; i++)
         {
-            row[i].Item1.transform.Translate(0, -1, 0);
+            row[i].Item1.transform.Translate(Vector3.down);
         }
     }
 
@@ -84,7 +86,7 @@ public class LandedItems : MonoBehaviour
         List<Tuple<GameObject, int>> contents = new List<Tuple<GameObject, int>>();
         for (int i = 0; i < landedSquares.Count; i++)
         {
-            if ((int) Math.Round(landedSquares[i].transform.position.y) == yVal)
+            if ((int) Math.Floor(landedSquares[i].transform.position.y) == yVal)
             {
                 contents.Add(new Tuple<GameObject, int>(landedSquares[i], i));
             }
