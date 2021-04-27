@@ -3,6 +3,7 @@ using System.Linq;
 using Packages.Rider.Editor.UnitTesting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(PolygonCollider2D))]
@@ -16,12 +17,12 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
     [SerializeField] private float defaultFallSpeedMod;
     [SerializeField] private float enhancedFallSpeedMod;
 
+    public Transform[] children;
     private Rigidbody2D _rigidbody;
     private PolygonCollider2D _collider;
     private CommandController _commandController;
     private Transform _transform;
     private GameObject _gameObject;
-    private Transform[] _children;
     private SpriteRenderer _childRender;
     private TetrominoManager _manager;
 
@@ -53,10 +54,10 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         _onGround = false;
         _hasMoved = false;
 
-        _children = _gameObject.GetComponentsInChildren<Transform>();
-        for (int i = 0; i < _children.Length; i++)
+        children = _gameObject.GetComponentsInChildren<Transform>();
+        for (int i = 0; i < children.Length; i++)
         {
-            _children[i].SetParent(_transform, true);
+            children[i].SetParent(_transform, true);
         }
     }
 
@@ -92,16 +93,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         {
             _onGround = true;
             Vector2[] squareVectors = GetSquareVectors();
-            
-            for (int i = 0; i < _children.Length; i++)
-            {
-                if (_manager.spawnPoint == (Vector2) _children[i].position)
-                {
-                    _manager.GameOver();
-                    return;
-                }
-            }
-            
+
             _alive = false;
             Destroy(_gameObject);
             Landed?.Invoke(squareVectors, _childRender.sprite);
@@ -146,15 +138,15 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         Vector2 rotationDirection;
 
         // for every square in the tetromino, shoot off rays
-        for (int i = 0; i < _children.Length; i++)
+        for (int i = 0; i < children.Length; i++)
         {
-            localPos = _children[i].position - _collider.transform.position;
+            localPos = children[i].position - _collider.transform.position;
             rotationDirection = new Vector2(-(localPos.x + localPos.y), (localPos.x - localPos.y)*rotateDir);
             
             Array.Clear(_rotateRaycastResults, 0, _rotateRaycastResults.Length);
-            rayHits = Physics2D.RaycastNonAlloc(_children[i].position, rotationDirection, 
+            rayHits = Physics2D.RaycastNonAlloc(children[i].position, rotationDirection, 
                 _rotateRaycastResults, 1);
-            Debug.DrawRay(_children[i].position, rotationDirection, Color.blue, 1);
+            Debug.DrawRay(children[i].position, rotationDirection, Color.blue, 1);
         
             numValidRays += rayHits;
             // for every ray, subtract one from the number of valid arrays if it's colliding with itself
@@ -176,10 +168,10 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         int validRayHits = 0;
         
         // for every square in the tetromino, shoot off rays
-        for (int i = 0; i < _children.Length; i++)
+        for (int i = 0; i < children.Length; i++)
         {
             Array.Clear(_moveRaycastResults, 0, _moveRaycastResults.Length);
-            rayHits = Physics2D.RaycastNonAlloc(_children[i].position, direction, 
+            rayHits = Physics2D.RaycastNonAlloc(children[i].position, direction, 
                 _moveRaycastResults, 1);
             
             validRayHits += rayHits;

@@ -16,6 +16,7 @@ public class TetrominoManager : MonoBehaviour
     [SerializeField] public int lineWidth;
     [SerializeField] public int rowScoreInc;
 
+    private GameObject newTetromino;
     private static bool _gameOver;
     private LandedItems _landedItems;
     private Dictionary<int, int> _rows;
@@ -24,19 +25,17 @@ public class TetrominoManager : MonoBehaviour
     {
         _gameOver = false;
         _landedItems = FindObjectOfType<LandedItems>();
-        NewTetromino(null, null);
+        NewTetromino();
         _rows = new Dictionary<int, int>();
     }
 
     private void OnEnable()
     {
-        TetrominoBehaviour.Landed += NewTetromino;
         LandedItems.TetrominoPlaced += CheckProgress;
     }
 
     private void OnDisable()
     {
-        TetrominoBehaviour.Landed -= NewTetromino;
         LandedItems.TetrominoPlaced -= CheckProgress;
     }
 
@@ -49,14 +48,24 @@ public class TetrominoManager : MonoBehaviour
     {
         _gameOver = true;
     }
-    
-    private async void NewTetromino(Vector2[] vectors, Sprite sprite)
+
+    private void NewTetromino()
     {
         if (_gameOver) return;
-        await new WaitUntil(() => _landedItems.tetrominosLanding == 0);
-        
+
         int prefabPos = Random.Range(0, prefabs.Count);
-        Instantiate(prefabs[prefabPos], spawnPoint, Quaternion.identity);
+        newTetromino = Instantiate(prefabs[prefabPos], spawnPoint, Quaternion.identity);
+        Transform[] children = newTetromino.GetComponent<TetrominoBehaviour>().children;
+            
+        for (int i = 0; i < children.Length; i++)
+        {
+            if (_landedItems.checkSquare(children[i].position))
+            {
+                Destroy(newTetromino);
+                GameOver();
+                return;
+            }
+        }
     }
 
     private void CheckProgress(float highestBlockY)
@@ -66,6 +75,7 @@ public class TetrominoManager : MonoBehaviour
             _gameOver = true;
         }
         CheckLines();
+        NewTetromino();
     }
 
     private void CheckLines()

@@ -29,7 +29,6 @@ public class LandedItems : MonoBehaviour
 
     private void AddSquares(Vector2[] positions, Sprite colour)
     {
-        tetrominosLanding++;
         _sprite.sprite = colour;
         float highestY = -200;
         BoxCollider2D squareCollider;
@@ -53,9 +52,22 @@ public class LandedItems : MonoBehaviour
         }
         
         TetrominoPlaced?.Invoke(highestY);
-        tetrominosLanding--;
     }
 
+    public bool checkSquare(Vector2 position)
+    {
+        bool isFull = false;
+        for (int i = 0; i < landedSquares.Count; i++)
+        {
+            if ((Vector2) landedSquares[i].transform.position == position)
+            {
+                isFull = true;
+            }
+        }
+
+        return isFull;
+    }
+    
     public void RemoveRow(int yVal)
     {
         List<Tuple<GameObject, int>> row = RowContents(yVal);
