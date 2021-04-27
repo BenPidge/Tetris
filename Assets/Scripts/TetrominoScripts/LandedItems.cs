@@ -7,6 +7,7 @@ public class LandedItems : MonoBehaviour
 {
     public static event Action<float> TetrominoPlaced;
     public List<GameObject> landedSquares = new List<GameObject>();
+    public int tetrominosLanding = 0;
     
     [SerializeField] private GameObject prefab;
     private SpriteRenderer _sprite;
@@ -28,6 +29,7 @@ public class LandedItems : MonoBehaviour
 
     private void AddSquares(Vector2[] positions, Sprite colour)
     {
+        tetrominosLanding++;
         _sprite.sprite = colour;
         float highestY = -200;
         BoxCollider2D squareCollider;
@@ -51,6 +53,7 @@ public class LandedItems : MonoBehaviour
         }
         
         TetrominoPlaced?.Invoke(highestY);
+        tetrominosLanding--;
     }
 
     public void RemoveRow(int yVal)

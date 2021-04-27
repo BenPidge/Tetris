@@ -23,8 +23,8 @@ public class TetrominoManager : MonoBehaviour
     private void Start()
     {
         _gameOver = false;
-        NewTetromino(null, null);
         _landedItems = FindObjectOfType<LandedItems>();
+        NewTetromino(null, null);
         _rows = new Dictionary<int, int>();
     }
 
@@ -50,10 +50,11 @@ public class TetrominoManager : MonoBehaviour
         _gameOver = true;
     }
     
-    private void NewTetromino(Vector2[] vectors, Sprite sprite)
+    private async void NewTetromino(Vector2[] vectors, Sprite sprite)
     {
         if (_gameOver) return;
-
+        await new WaitUntil(() => _landedItems.tetrominosLanding == 0);
+        
         int prefabPos = Random.Range(0, prefabs.Count);
         Instantiate(prefabs[prefabPos], spawnPoint, Quaternion.identity);
     }
