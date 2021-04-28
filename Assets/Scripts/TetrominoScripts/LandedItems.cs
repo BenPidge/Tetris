@@ -7,8 +7,7 @@ public class LandedItems : MonoBehaviour
 {
     public static event Action<float> TetrominoPlaced;
     public List<GameObject> landedSquares = new List<GameObject>();
-    public int tetrominosLanding = 0;
-    
+
     [SerializeField] private GameObject prefab;
     private SpriteRenderer _sprite;
 
@@ -19,11 +18,13 @@ public class LandedItems : MonoBehaviour
 
     private void OnEnable()
     {
+        GameOverManager.GameRestarted += ResetBoard;
         TetrominoBehaviour.Landed += AddSquares;
     }
 
     private void OnDisable()
     {
+        GameOverManager.GameRestarted -= ResetBoard;
         TetrominoBehaviour.Landed -= AddSquares;
     }
 
@@ -54,6 +55,15 @@ public class LandedItems : MonoBehaviour
         TetrominoPlaced?.Invoke(highestY);
     }
 
+    private void ResetBoard()
+    {
+        for (int i = 0; i < landedSquares.Count; i++)
+        {
+            Destroy(landedSquares[i]);
+        }
+        landedSquares.Clear();
+    }
+    
     public bool checkSquare(Vector2 position)
     {
         bool isFull = false;

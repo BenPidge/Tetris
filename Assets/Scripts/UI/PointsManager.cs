@@ -16,22 +16,32 @@ public class PointsManager : MonoBehaviour
         _pointsText = gameObject.GetComponent<TextMeshProUGUI>();
         _manager = FindObjectOfType<TetrominoManager>();
     }
-
-    private void SetPointsText()
-    {
-        _pointsText.text = "Points: " + _score;
-    }
     
     private void OnEnable()
     {
         TetrominoManager.RowCleared += IncrementScore;
+        GameOverManager.GameRestarted += ResetPoints;
     }
     
     private void OnDisable()
     {
         TetrominoManager.RowCleared -= IncrementScore;
+        GameOverManager.GameRestarted -= ResetPoints;
+    }
+
+
+
+    private void ResetPoints()
+    {
+        _score = 0;
+        SetPointsText();
     }
     
+    private void SetPointsText()
+    {
+        _pointsText.text = "Points: " + _score;
+    }
+
     private void IncrementScore(int increment)
     {
         _score += increment;

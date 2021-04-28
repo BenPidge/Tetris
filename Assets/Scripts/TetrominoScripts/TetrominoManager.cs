@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public class TetrominoManager : MonoBehaviour
@@ -15,28 +17,32 @@ public class TetrominoManager : MonoBehaviour
     [SerializeField] public float fallSpeedIncrease;
     [SerializeField] public int lineWidth;
     [SerializeField] public int rowScoreInc;
-
-    private GameObject newTetromino;
+    [SerializeField] private GameObject gameOverPanel;
+    
+    private GameObject _newTetromino;
     private static bool _gameOver;
     private LandedItems _landedItems;
     private Dictionary<int, int> _rows;
-    
+
     private void Start()
     {
         _gameOver = false;
         _landedItems = FindObjectOfType<LandedItems>();
         NewTetromino();
         _rows = new Dictionary<int, int>();
+        gameOverPanel.gameObject.SetActive(false);
     }
 
     private void OnEnable()
     {
         LandedItems.TetrominoPlaced += CheckProgress;
+        GameOverManager.GameRestarted += ResetGame;
     }
 
     private void OnDisable()
     {
         LandedItems.TetrominoPlaced -= CheckProgress;
+        GameOverManager.GameRestarted -= ResetGame;
     }
 
     public void IncreaseFallSpeed()
@@ -44,9 +50,18 @@ public class TetrominoManager : MonoBehaviour
         fallSpeed += fallSpeedIncrease;
     }
 
-    public void GameOver()
+    private async void ResetGame()
+    {
+        await new WaitUntil(() => _landedItems.landedSquares.Count == 0);
+        gameOverPanel.gameObject.SetActive(false);
+        _gameOver = false;
+        NewTetromino();
+    }
+    
+    private void GameOver()
     {
         _gameOver = true;
+        gameOverPanel.gameObject.SetActive(true);
     }
 
     private void NewTetromino()
@@ -54,14 +69,14 @@ public class TetrominoManager : MonoBehaviour
         if (_gameOver) return;
 
         int prefabPos = Random.Range(0, prefabs.Count);
-        newTetromino = Instantiate(prefabs[prefabPos], spawnPoint, Quaternion.identity);
-        Transform[] children = newTetromino.GetComponent<TetrominoBehaviour>().children;
+        _newTetromino = Instantiate(prefabs[prefabPos], spawnPoint, Quaternion.identity);
+        Transform[] children = _newTetromino.GetComponent<TetrominoBehaviour>().children;
             
         for (int i = 0; i < children.Length; i++)
         {
             if (_landedItems.checkSquare(children[i].position))
             {
-                Destroy(newTetromino);
+                Destroy(_newTetromino);
                 GameOver();
                 return;
             }
@@ -73,6 +88,7 @@ public class TetrominoManager : MonoBehaviour
         if (highestBlockY > highestY)
         {
             _gameOver = true;
+            GameOver();
         }
         CheckLines();
         NewTetromino();
