@@ -11,9 +11,4 @@ public class RotateCommand : Command
         base.Execute(entity);
         Entity.SetNextRotate(1);
     }
-
-    public override void Undo()
-    {
-        Entity.SetNextRotate(-1);
-    }
 }

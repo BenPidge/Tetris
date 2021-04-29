@@ -14,5 +14,4 @@ public abstract class Command
     {
         Entity = entity;
     }
-    public abstract void Undo();
 }

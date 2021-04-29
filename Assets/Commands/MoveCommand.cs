@@ -22,9 +22,4 @@ public class MoveCommand : Command
         int fallMultiplier = (_axis * -2 + 1);
         Entity.SetNextPosition(_direction * _moveDistance * fallMultiplier, _axis);
     }
-
-    public override void Undo()
-    {
-        Entity.SetNextPosition(-1f * _direction * _moveDistance, _axis);
-    }
 }
