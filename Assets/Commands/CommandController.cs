@@ -1,21 +1,53 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CommandController : MonoBehaviour
 {
-    private List<Command> _commands = new List<Command>();
+    private static List<Command> _commands = new List<Command>();
+    private static TetrominoManager _manager;
+    private static float _timer;
 
-    public void ExecuteCommand(Command command)
+    private void Start()
     {
-        _commands.Add(command);
-        command.Execute();
+        _manager = FindObjectOfType<TetrominoManager>();
     }
 
-    public void UndoLatestCommand()
+    private void OnEnable()
     {
-        var nextCommand = _commands.Count - 1;
-        if (nextCommand < 0) return;
-        _commands[nextCommand].Undo();
-        _commands.RemoveAt(nextCommand);
+        TetrominoManager.ReplayBegun += RunCommands;
+    }
+
+    private void OnDisable()
+    {
+        TetrominoManager.ReplayBegun -= RunCommands;
+    }
+    
+    
+    
+    public static void ExecuteCommand(Command command)
+    {
+        _commands.Add(command);
+        command.Execute(_manager.currentTetromino.GetComponent<TetrominoBehaviour>());
+    }
+
+    public void RunOldestCommand()
+    {
+        if (_manager.currentTetromino == null) return;
+        _commands[0].Execute(_manager.currentTetromino.GetComponent<TetrominoBehaviour>());
+        _commands.RemoveAt(0);
+    }
+
+    public static void Empty()
+    {
+        _commands.Clear();
+    }
+
+    private void RunCommands()
+    {
+        for (int i = 0; i < _commands.Count; i++)
+        {
+            Invoke(nameof(RunOldestCommand), _commands[i].TimeExecuted);
+        }
     }
 }

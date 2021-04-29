@@ -9,6 +9,7 @@ using Random = UnityEngine.Random;
 public class TetrominoManager : MonoBehaviour
 {
     public static event Action<int> RowCleared;
+    public static event Action ReplayBegun;
     
     [SerializeField] private float highestY;
     [SerializeField] public Vector2 spawnPoint;
@@ -18,15 +19,18 @@ public class TetrominoManager : MonoBehaviour
     [SerializeField] public int lineWidth;
     [SerializeField] public int rowScoreInc;
     [SerializeField] private GameObject gameOverPanel;
-    
-    private GameObject _newTetromino;
-    private static bool _gameOver;
+
+    private List<GameObject> _usedPrefabs = new List<GameObject>();
+    public GameObject currentTetromino;
     private LandedItems _landedItems;
     private Dictionary<int, int> _rows;
+    private static bool _gameOver;
+    private static bool _isReplay;
 
     private void Start()
     {
         _gameOver = false;
+        _isReplay = false;
         _landedItems = FindObjectOfType<LandedItems>();
         NewTetromino();
         _rows = new Dictionary<int, int>();
@@ -37,24 +41,41 @@ public class TetrominoManager : MonoBehaviour
     {
         LandedItems.TetrominoPlaced += CheckProgress;
         GameOverManager.GameRestarted += ResetGame;
+        GameOverManager.GameReplayed += BeginReplay;
     }
 
     private void OnDisable()
     {
         LandedItems.TetrominoPlaced -= CheckProgress;
         GameOverManager.GameRestarted -= ResetGame;
+        GameOverManager.GameReplayed -= BeginReplay;
     }
 
+    
+    
     public void IncreaseFallSpeed()
     {
         fallSpeed += fallSpeedIncrease;
     }
 
-    private async void ResetGame()
+    
+    
+    private async void BeginReplay(float startTime)
     {
         await new WaitUntil(() => _landedItems.landedSquares.Count == 0);
         gameOverPanel.gameObject.SetActive(false);
         _gameOver = false;
+        _isReplay = true;
+        NewTetromino();
+        ReplayBegun?.Invoke();
+    }
+
+    private async void ResetGame(float startTime)
+    {
+        await new WaitUntil(() => _landedItems.landedSquares.Count == 0);
+        gameOverPanel.gameObject.SetActive(false);
+        _gameOver = false;
+        _isReplay = false;
         NewTetromino();
     }
     
@@ -67,16 +88,31 @@ public class TetrominoManager : MonoBehaviour
     private void NewTetromino()
     {
         if (_gameOver) return;
-
-        int prefabPos = Random.Range(0, prefabs.Count);
-        _newTetromino = Instantiate(prefabs[prefabPos], spawnPoint, Quaternion.identity);
-        Transform[] children = _newTetromino.GetComponent<TetrominoBehaviour>().children;
+        GameObject nextPrefab;
+        
+        // gets the appropriate prefab if it's a replay, or randomly selects one otherwise
+        if (_isReplay)
+        {
+            nextPrefab = _usedPrefabs[0];
+            _usedPrefabs.RemoveAt(0);
+        }
+        else
+        {
+            int prefabPos = Random.Range(0, prefabs.Count);
+            nextPrefab = prefabs[prefabPos];
+            _usedPrefabs.Add(nextPrefab);
+        }
+        
+        currentTetromino = Instantiate(nextPrefab, spawnPoint, Quaternion.identity);
+        TetrominoBehaviour currentTetrominoCode = currentTetromino.GetComponent<TetrominoBehaviour>();
+        currentTetrominoCode.SetReplay(_isReplay);
+        Transform[] children = currentTetrominoCode.children;
             
         for (int i = 0; i < children.Length; i++)
         {
             if (_landedItems.checkSquare(children[i].position))
             {
-                Destroy(_newTetromino);
+                Destroy(currentTetromino);
                 GameOver();
                 return;
             }

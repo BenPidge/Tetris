@@ -1,12 +1,18 @@
-﻿public abstract class Command
-{
-    protected TetrisEntity _entity;
+﻿using UnityEngine;
 
-    public Command(TetrisEntity entity)
+public abstract class Command
+{
+    protected TetrisEntity Entity;
+    public float TimeExecuted;
+
+    public Command(float time)
     {
-        _entity = entity;
+        TimeExecuted = time;
     }
 
-    public abstract void Execute();
+    public virtual void Execute(TetrisEntity entity)
+    {
+        Entity = entity;
+    }
     public abstract void Undo();
 }

@@ -31,7 +31,7 @@ public class PointsManager : MonoBehaviour
 
 
 
-    private void ResetPoints()
+    private void ResetPoints(float timeCalled)
     {
         _score = 0;
         SetPointsText();

@@ -1,16 +1,19 @@
-﻿public class RotateCommand : Command
+﻿using UnityEngine;
+
+public class RotateCommand : Command
 {
-    public RotateCommand(TetrisEntity entity) : base(entity)
+    public RotateCommand(float time) : base(time)
     {
     }
 
-    public override void Execute()
+    public override void Execute(TetrisEntity entity)
     {
-        _entity.SetNextRotate(1);
+        base.Execute(entity);
+        Entity.SetNextRotate(1);
     }
 
     public override void Undo()
     {
-        _entity.SetNextRotate(-1);
+        Entity.SetNextRotate(-1);
     }
 }

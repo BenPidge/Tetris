@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6180317883667348406}
   - component: {fileID: 6613695886189115810}
   - component: {fileID: 4646851783736502792}
-  - component: {fileID: 8717613355925086293}
   m_Layer: 8
   m_Name: J-Tetromino
   m_TagString: Untagged
@@ -184,6 +183,7 @@ MonoBehaviour:
   moveDistance: 1
   defaultFallSpeedMod: 1
   enhancedFallSpeedMod: 4
+  children: []
 --- !u!60 &4646851783736502792
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -220,18 +220,6 @@ PolygonCollider2D:
       - {x: 0.4978859, y: -2.4990494}
       - {x: 0.49633348, y: -2.0355756}
       - {x: 0.49578056, y: -0.49671033}
---- !u!114 &8717613355925086293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1859468913345681923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c09bd6a5dad4d9483af986a049d03cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2301983914888440024
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7,7 +7,6 @@ using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(PolygonCollider2D))]
-[RequireComponent(typeof(CommandController))]
 public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
 {
     public static event Action<Vector2[], Sprite> Landed;
@@ -20,7 +19,6 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
     public Transform[] children;
     private Rigidbody2D _rigidbody;
     private PolygonCollider2D _collider;
-    private CommandController _commandController;
     private Transform _transform;
     private GameObject _gameObject;
     private SpriteRenderer _childRender;
@@ -36,13 +34,13 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
     private bool _onGround;
     private bool _hasMoved;
     private bool _alive;
+    private bool _replayTetromino;
 
     private void Awake()
     {
         _gameObject = gameObject;
         _rigidbody = _gameObject.GetComponent<Rigidbody2D>();
         _collider = _gameObject.GetComponent<PolygonCollider2D>();
-        _commandController = _gameObject.GetComponent<CommandController>();
         _transform = _gameObject.GetComponent<Transform>();
         _childRender = GetComponentsInChildren<SpriteRenderer>()[0];
         _manager = FindObjectOfType<TetrominoManager>();
@@ -53,6 +51,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         _movingDown = false;
         _onGround = false;
         _hasMoved = false;
+        _replayTetromino = false;
 
         children = _gameObject.GetComponentsInChildren<Transform>();
         for (int i = 0; i < children.Length; i++)
@@ -78,9 +77,9 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
 
     private void Descent(float dt)
     {
-        if (Time.time - _lastFallTime >= _manager.fallSpeed / dt)
+        if (Time.time - _lastFallTime >= _manager.fallSpeed / dt && !_replayTetromino)
         {
-            _commandController.ExecuteCommand(new MoveCommand(this, 1, 1, 1));
+            CommandController.ExecuteCommand(new MoveCommand(Time.timeSinceLevelLoad, 1, 1, 1));
             _lastFallTime = Time.time;
         }
     }
@@ -113,6 +112,11 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         return vectors;
     }
 
+    public void SetReplay(bool isReplay)
+    {
+        _replayTetromino = isReplay;
+    }
+    
     public void SetNextPosition(float newPosition, int direction)
     {
         Vector2 dir = new Vector2(0, 0);
@@ -197,17 +201,17 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         {
             _movingDown = true;
         }
-        else
+        else if (!_replayTetromino)
         {
-            _commandController.ExecuteCommand(new MoveCommand(this, direction.x, moveDistance, 0));   
+            CommandController.ExecuteCommand(new MoveCommand(Time.timeSinceLevelLoad, direction.x, moveDistance, 0));   
         }
     }
     
     public void OnRotate(InputAction.CallbackContext context)
     {
-        if (!_onGround && context.performed)
+        if (!_onGround && context.performed && !_replayTetromino)
         {
-            _commandController.ExecuteCommand(new RotateCommand(this));
+            CommandController.ExecuteCommand(new RotateCommand(Time.timeSinceLevelLoad));
         }
     }
 }

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5337067056724737793}
   - component: {fileID: 4908190454739877141}
   - component: {fileID: 6893070920197942975}
-  - component: {fileID: 7435121103118640354}
   m_Layer: 8
   m_Name: L-Tetromino Variant
   m_TagString: Untagged
@@ -184,6 +183,7 @@ MonoBehaviour:
   moveDistance: 1
   defaultFallSpeedMod: 1
   enhancedFallSpeedMod: 4
+  children: []
 --- !u!60 &6893070920197942975
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -220,18 +220,6 @@ PolygonCollider2D:
       - {x: -0.52859163, y: 0.50000525}
       - {x: -1.5, y: 0.50000006}
       - {x: -1.5000015, y: 0.34599417}
---- !u!114 &7435121103118640354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 440188892551962292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c09bd6a5dad4d9483af986a049d03cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &11186724599147631
 PrefabInstance:
   m_ObjectHideFlags: 0
