@@ -66,7 +66,10 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         if (!_alive) return;
 
         // time if its actively being pushed down, the float otherwise
-        Descent(_movingDown ? enhancedFallSpeedMod : defaultFallSpeedMod);
+        if (!_replayTetromino)
+        {
+            Descent(_movingDown ? enhancedFallSpeedMod : defaultFallSpeedMod);
+        }
         CheckHasLanded();
         _rigidbody.MovePosition(_nextPosition);
         _rigidbody.SetRotation(_nextRotation);
@@ -77,7 +80,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
 
     private void Descent(float dt)
     {
-        if (Time.time - _lastFallTime >= _manager.fallSpeed / dt && !_replayTetromino)
+        if (Time.time - _lastFallTime >= _manager.fallSpeed / dt)
         {
             CommandController.ExecuteCommand(new MoveCommand(Time.timeSinceLevelLoad, 1, 1, 1));
             _lastFallTime = Time.time;

@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class PointsManager : MonoBehaviour
 {
     private int _score;
-    private TextMeshProUGUI _pointsText;
+    [SerializeField] private TextMeshProUGUI pointsText;
     private TetrominoManager _manager;
 
     private void Awake()
     {
         _score = 0;
-        _pointsText = gameObject.GetComponent<TextMeshProUGUI>();
+        pointsText = gameObject.GetComponent<TextMeshProUGUI>();
         _manager = FindObjectOfType<TetrominoManager>();
     }
     
@@ -21,12 +22,14 @@ public class PointsManager : MonoBehaviour
     {
         TetrominoManager.RowCleared += IncrementScore;
         GameOverManager.GameRestarted += ResetPoints;
+        GameOverManager.GameReplayed += ResetPoints;
     }
     
     private void OnDisable()
     {
         TetrominoManager.RowCleared -= IncrementScore;
         GameOverManager.GameRestarted -= ResetPoints;
+        GameOverManager.GameReplayed -= ResetPoints;
     }
 
 
@@ -39,7 +42,7 @@ public class PointsManager : MonoBehaviour
     
     private void SetPointsText()
     {
-        _pointsText.text = "Points: " + _score;
+        pointsText.text = "Points: " + _score;
     }
 
     private void IncrementScore(int increment)

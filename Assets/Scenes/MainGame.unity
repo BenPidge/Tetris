@@ -207,6 +207,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 877503635}
     m_Modifications:
+    - target: {fileID: 1171538630, guid: 441d0f186634c1045b55da0832504877, type: 3}
+      propertyPath: pointsText
+      value: 
+      objectReference: {fileID: 211896170}
     - target: {fileID: 3152591568299923066, guid: 441d0f186634c1045b55da0832504877,
         type: 3}
       propertyPath: m_Pivot.x
@@ -325,6 +329,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 211896168}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &211896170 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3152591568299923065, guid: 441d0f186634c1045b55da0832504877,
+    type: 3}
+  m_PrefabInstance: {fileID: 211896168}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &839523934
 GameObject:
   m_ObjectHideFlags: 0

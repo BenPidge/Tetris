@@ -65,6 +65,7 @@
             <e p="LandedItems.cs" t="Include" />
             <e p="TetrominoBehaviour.cs" t="Include" />
             <e p="TetrominoManager.cs" t="Include" />
+            <e p="TutorialManager.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
             <e p="GameOverManager.cs" t="Include" />

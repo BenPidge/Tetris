@@ -20,7 +20,7 @@ public class TetrominoManager : MonoBehaviour
     [SerializeField] public int rowScoreInc;
     [SerializeField] private GameObject gameOverPanel;
 
-    private List<GameObject> _usedPrefabs = new List<GameObject>();
+    private Queue<GameObject> _usedPrefabs = new Queue<GameObject>();
     public GameObject currentTetromino;
     private LandedItems _landedItems;
     private Dictionary<int, int> _rows;
@@ -93,14 +93,13 @@ public class TetrominoManager : MonoBehaviour
         // gets the appropriate prefab if it's a replay, or randomly selects one otherwise
         if (_isReplay)
         {
-            nextPrefab = _usedPrefabs[0];
-            _usedPrefabs.RemoveAt(0);
+            nextPrefab = _usedPrefabs.Dequeue();
         }
         else
         {
             int prefabPos = Random.Range(0, prefabs.Count);
             nextPrefab = prefabs[prefabPos];
-            _usedPrefabs.Add(nextPrefab);
+            _usedPrefabs.Enqueue(nextPrefab);
         }
         
         currentTetromino = Instantiate(nextPrefab, spawnPoint, Quaternion.identity);
