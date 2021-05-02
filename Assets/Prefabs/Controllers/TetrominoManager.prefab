@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6893841743105310363}
   - component: {fileID: 6893841743105310362}
+  - component: {fileID: 6893841743382080820}
   m_Layer: 0
   m_Name: TetrominoManager
   m_TagString: Untagged
@@ -53,8 +54,114 @@ MonoBehaviour:
   - {fileID: 7174054639933417485, guid: 17463bcfd9a224645a8338e3f2042607, type: 3}
   - {fileID: 4174449227811596875, guid: acc4041580475ed4d8283ee1ef8f49ab, type: 3}
   - {fileID: 3347208691523534684, guid: bca6dfd96ebe61940a77ca51856658d1, type: 3}
+  specialPrefab: {fileID: 1952241282801960047, guid: c6dc632383eb8ec4496a224d290f6432,
+    type: 3}
   fallSpeed: 1
   fallSpeedIncrease: 0.25
   lineWidth: 19
   rowScoreInc: 100
   gameOverPanel: {fileID: 0}
+  transformCost: 150
+  currentTetromino: {fileID: 0}
+--- !u!114 &6893841743382080820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6893841743105310357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 7850226c56dd4d7eacc7d00d2cb7c176,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 21f730a8-3a8b-41f6-baf5-398285f08868
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0a6c52d0-5f49-4899-9f31-2a8c9fd95b24
+    m_ActionName: Player/Look[/Mouse/delta,/Pen/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6da08b57-febb-4ebe-a93a-7f6c56037353
+    m_ActionName: Player/Fire[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4a4b7912-0ecb-43fb-9d11-ca47d38c9551
+    m_ActionName: Player/Rotate[/Mouse/leftButton,/Pen/tip,/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6893841743105310362}
+        m_MethodName: TransformTetromino
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0e656c4c-b6b8-405a-8c07-0b63a8eb57e2
+    m_ActionName: Player/Transform[/Mouse/rightButton,/Pen/barrel1]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: eef8059d-3bf5-4ed8-a477-ff2adf3228af
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c15aa45d-cd44-45bf-b787-bcdd8b7ea2bb
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 90869051-b0ed-45ae-a76f-7a6a50c0ae16
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 013d3d42-8b0b-4b58-84b6-47f410e11167
+    m_ActionName: UI/Point[/Mouse/position,/Pen/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 587462dd-0dfe-455a-943d-298553cb3ee7
+    m_ActionName: UI/Click[/Mouse/leftButton,/Pen/tip]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8fab02be-88ef-47b4-8d71-33eb2e30316d
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 86bf5496-76f9-43de-83b6-88882398f039
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a36fc3c3-410f-4fff-a0eb-dddeef730974
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c41ab3dc-2225-43ce-9b99-ed76cc32d9c3
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4653525f-1801-44db-9b53-33b5f9d20dd2
+    m_ActionName: UI/TrackedDeviceOrientation
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}

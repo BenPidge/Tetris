@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class PointsManager : MonoBehaviour
 {
-    private int _score;
+    private static int _score;
     [SerializeField] private TextMeshProUGUI pointsText;
     private TetrominoManager _manager;
 
@@ -21,19 +21,28 @@ public class PointsManager : MonoBehaviour
     private void OnEnable()
     {
         TetrominoManager.RowCleared += IncrementScore;
+        TutorialManager.RowCleared += IncrementScore;
         GameOverManager.GameRestarted += ResetPoints;
         GameOverManager.GameReplayed += ResetPoints;
+        TransformCommand.Transformed += DecreaseScore;
     }
     
     private void OnDisable()
     {
         TetrominoManager.RowCleared -= IncrementScore;
+        TutorialManager.RowCleared -= IncrementScore;
         GameOverManager.GameRestarted -= ResetPoints;
         GameOverManager.GameReplayed -= ResetPoints;
+        TransformCommand.Transformed -= DecreaseScore;
     }
 
 
 
+    public static int GetPoints()
+    {
+        return _score;
+    }
+    
     private void ResetPoints(float timeCalled)
     {
         _score = 0;
@@ -54,5 +63,10 @@ public class PointsManager : MonoBehaviour
             _manager.IncreaseFallSpeed();
         }
     }
-    
+
+    private void DecreaseScore(int amnt)
+    {
+        _score -= amnt;
+        SetPointsText();
+    }
 }

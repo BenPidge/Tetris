@@ -14,6 +14,7 @@
           <e p="MoveCommand.cs" t="Include" />
           <e p="RotateCommand.cs" t="Include" />
           <e p="TetrisEntity.cs" t="Include" />
+          <e p="TransformCommand.cs" t="Include" />
         </e>
         <e p="Plugins" t="Include">
           <e p="AsyncAwaitUtil" t="Include">

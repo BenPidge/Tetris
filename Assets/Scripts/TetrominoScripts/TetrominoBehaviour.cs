@@ -17,15 +17,15 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
     [SerializeField] private float enhancedFallSpeedMod;
 
     public Transform[] children;
-    private Rigidbody2D _rigidbody;
+    public Rigidbody2D wholeRigidbody;
     private PolygonCollider2D _collider;
     private Transform _transform;
     private GameObject _gameObject;
     private SpriteRenderer _childRender;
     private TetrominoManager _manager;
 
-    private RaycastHit2D[] _rotateRaycastResults = new RaycastHit2D[10];
-    private RaycastHit2D[] _moveRaycastResults = new RaycastHit2D[10];
+    private readonly RaycastHit2D[] _rotateRaycastResults = new RaycastHit2D[10];
+    private readonly RaycastHit2D[] _moveRaycastResults = new RaycastHit2D[10];
     private Vector2 _nextPosition;
     private float _lastFallTime;
     private float _nextRotation;
@@ -39,13 +39,13 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
     private void Awake()
     {
         _gameObject = gameObject;
-        _rigidbody = _gameObject.GetComponent<Rigidbody2D>();
+        wholeRigidbody = _gameObject.GetComponent<Rigidbody2D>();
         _collider = _gameObject.GetComponent<PolygonCollider2D>();
         _transform = _gameObject.GetComponent<Transform>();
         _childRender = GetComponentsInChildren<SpriteRenderer>()[0];
         _manager = FindObjectOfType<TetrominoManager>();
 
-        _nextPosition = _rigidbody.position;
+        _nextPosition = wholeRigidbody.position;
         _lastFallTime = Time.time;
         _alive = true;
         _movingDown = false;
@@ -71,8 +71,8 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
             Descent(_movingDown ? enhancedFallSpeedMod : defaultFallSpeedMod);
         }
         CheckHasLanded();
-        _rigidbody.MovePosition(_nextPosition);
-        _rigidbody.SetRotation(_nextRotation);
+        wholeRigidbody.MovePosition(_nextPosition);
+        wholeRigidbody.SetRotation(_nextRotation);
         _hasMoved = false;
     }
 
@@ -91,7 +91,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
     {
         if (!_alive) return;
         // if the collision isn't the sides of two objects touching
-        if (!CheckMove(Vector2.down) && _nextPosition.y <= _rigidbody.position.y)
+        if (!CheckMove(Vector2.down) && _nextPosition.y <= wholeRigidbody.position.y)
         {
             _onGround = true;
             Vector2[] squareVectors = GetSquareVectors();
@@ -104,12 +104,10 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
 
     private Vector2[] GetSquareVectors()
     {
-        Vector2[] vectors = new Vector2[4];
-        int x = 0;
-        foreach (Transform child in transform)
+        Vector2[] vectors = new Vector2[transform.childCount];
+        for (int i = 0; i < transform.childCount; i++)
         {
-            vectors[x] = child.position;
-            x++;
+            vectors[i] = transform.GetChild(i).position;
         }
 
         return vectors;
@@ -133,7 +131,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
 
     public void SetNextRotate(int num)
     {
-        float rotation = _rigidbody.rotation;
+        float rotation = wholeRigidbody.rotation;
         _nextRotation = CheckRotate(num) == 0 ? (rotation + 90 * num) % 360 : rotation;
     }
 

@@ -43,5 +43,206 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 685fc83ab61a474ab4143cdeb9323e98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs: []
-  spawnPoint: {x: 0, y: 0}
+  highestY: 0
+  prefabs:
+  - {fileID: 4174449227811596875, guid: acc4041580475ed4d8283ee1ef8f49ab, type: 3}
+  - {fileID: 440188892551962292, guid: 521047f4f00fb4e42b37141d04ded053, type: 3}
+  - {fileID: 3347208691523534684, guid: bca6dfd96ebe61940a77ca51856658d1, type: 3}
+  spawnPoint: {x: 0.5, y: 4.5}
+  promptText:
+  - One of 7 tetrominoes randomly spawn at a constant position at the start of the
+    game.
+  - These tetrominoes move down slowly towards the floor. Pressing S speeds this
+    up for the current tetromino.
+  - Using the A and D keys, you can move the tetromino horizontally.
+  - Upon the bottom of the tetromino making contact with something, it solidifies
+    in place.
+  - After this, a new random tetromino spawns. This could be the same or a different
+    shape.
+  - Tetrominoes can be rotated using Q or Left Click. They rotate in the same direction,
+    around a specific square.
+  - Once an entire row fills up, it is destroyed and squares above it fall one layer.
+    You get 100 points, and the fall speed of the squares increases every 1000 points.
+  - Right clicking or pressing E transforms the current tetromino to a single square
+    tetromino, costing 150 points. To show this, the points have been artificially
+    raised here.
+  - The game is lost if tetrominos get above a certain height, or if a tetromino
+    cannot fit inside the given spawn point. Upon losing, you can restart, rewatch
+    the playthrough or quit the game.
+  - You will now be returned to the main menu...
+  promptTextBox: {fileID: 0}
+  commands:
+  - stepType: NextTetromino
+    inputs: []
+  - stepType: Break
+    inputs: []
+  - stepType: MoveCommand
+    inputs:
+    - 1
+    - 1
+    - 1
+  - stepType: MoveCommand
+    inputs:
+    - 1
+    - 1
+    - 1
+  - stepType: MoveCommand
+    inputs:
+    - 1
+    - 1
+    - 1
+  - stepType: Break
+    inputs: []
+  - stepType: MoveCommand
+    inputs:
+    - 1
+    - 1
+    - 0
+  - stepType: MoveCommand
+    inputs:
+    - 1
+    - 1
+    - 0
+  - stepType: MoveCommand
+    inputs:
+    - -1
+    - 1
+    - 0
+  - stepType: Break
+    inputs: []
+  - stepType: MoveCommand
+    inputs:
+    - 1
+    - 1
+    - 1
+  - stepType: MoveCommand
+    inputs:
+    - 1
+    - 1
+    - 1
+  - stepType: MoveCommand
+    inputs:
+    - 1
+    - 1
+    - 1
+  - stepType: MoveCommand
+    inputs:
+    - 1
+    - 1
+    - 1
+  - stepType: Break
+    inputs: []
+  - stepType: NextTetromino
+    inputs: []
+  - stepType: Break
+    inputs: []
+  - stepType: RotateCommand
+    inputs: []
+  - stepType: RotateCommand
+    inputs: []
+  - stepType: Break
+    inputs: []
+  - stepType: MoveCommand
+    inputs:
+    - -1
+    - 1
+    - 0
+  - stepType: MoveCommand
+    inputs:
+    - 1
+    - 1
+    - 1
+  - stepType: MoveCommand
+    inputs:
+    - 1
+    - 1
+    - 1
+  - stepType: MoveCommand
+    inputs:
+    - 1
+    - 1
+    - 1
+  - stepType: MoveCommand
+    inputs:
+    - 1
+    - 1
+    - 1
+  - stepType: MoveCommand
+    inputs:
+    - 1
+    - 1
+    - 1
+  - stepType: MoveCommand
+    inputs:
+    - 1
+    - 1
+    - 1
+  - stepType: MoveCommand
+    inputs:
+    - 1
+    - 1
+    - 1
+  - stepType: MoveCommand
+    inputs:
+    - 1
+    - 1
+    - 1
+  - stepType: RemoveRow
+    inputs:
+    - -4
+  - stepType: Break
+    inputs: []
+  - stepType: NextTetromino
+    inputs: []
+  - stepType: MoveCommand
+    inputs:
+    - 1
+    - 1
+    - 1
+  - stepType: MoveCommand
+    inputs:
+    - 1
+    - 1
+    - 1
+  - stepType: MoveCommand
+    inputs:
+    - 1
+    - 1
+    - 1
+  - stepType: TransformTetromino
+    inputs: []
+  - stepType: MoveCommand
+    inputs:
+    - 1
+    - 1
+    - 1
+  - stepType: MoveCommand
+    inputs:
+    - 1
+    - 1
+    - 1
+  - stepType: MoveCommand
+    inputs:
+    - 1
+    - 1
+    - 1
+  - stepType: MoveCommand
+    inputs:
+    - 1
+    - 1
+    - 1
+  - stepType: MoveCommand
+    inputs:
+    - 1
+    - 1
+    - 1
+  - stepType: Break
+    inputs: []
+  - stepType: Break
+    inputs: []
+  - stepType: LoadMenu
+    inputs: []
+  gameOverPanel: {fileID: 0}
+  specialPrefab: {fileID: 1952241282801960047, guid: c6dc632383eb8ec4496a224d290f6432,
+    type: 3}
+  currentTetromino: {fileID: 0}

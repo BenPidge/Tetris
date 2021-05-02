@@ -10,22 +10,26 @@ public class TetrominoManager : MonoBehaviour
 {
     public static event Action<int> RowCleared;
     public static event Action ReplayBegun;
-    
+
     [SerializeField] private float highestY;
     [SerializeField] public Vector2 spawnPoint;
     [SerializeField] private List<GameObject> prefabs;
+    [SerializeField] private GameObject specialPrefab;
     [SerializeField] public float fallSpeed;
     [SerializeField] public float fallSpeedIncrease;
     [SerializeField] public int lineWidth;
     [SerializeField] public int rowScoreInc;
     [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private int transformCost;
 
-    private Queue<GameObject> _usedPrefabs = new Queue<GameObject>();
+    private readonly Queue<GameObject> _usedPrefabs = new Queue<GameObject>();
     public GameObject currentTetromino;
+    private TetrominoBehaviour _currentTetrominoCode;
     private LandedItems _landedItems;
     private Dictionary<int, int> _rows;
     private static bool _gameOver;
     private static bool _isReplay;
+    private bool _isTransformed;
 
     private void Start()
     {
@@ -42,6 +46,7 @@ public class TetrominoManager : MonoBehaviour
         LandedItems.TetrominoPlaced += CheckProgress;
         GameOverManager.GameRestarted += ResetGame;
         GameOverManager.GameReplayed += BeginReplay;
+        TransformCommand.Transformed += CreateTransformedTetromino;
     }
 
     private void OnDisable()
@@ -49,6 +54,7 @@ public class TetrominoManager : MonoBehaviour
         LandedItems.TetrominoPlaced -= CheckProgress;
         GameOverManager.GameRestarted -= ResetGame;
         GameOverManager.GameReplayed -= BeginReplay;
+        TransformCommand.Transformed -= CreateTransformedTetromino;
     }
 
     
@@ -58,6 +64,15 @@ public class TetrominoManager : MonoBehaviour
         fallSpeed += fallSpeedIncrease;
     }
 
+    public void TransformTetromino()
+    {
+        if (PointsManager.GetPoints() >= 150 && !_isTransformed)
+        {
+            _isTransformed = true;
+            CommandController.ExecuteCommand(new TransformCommand(Time.timeSinceLevelLoad, transformCost));
+        }
+    }
+    
     
     
     private async void BeginReplay(float startTime)
@@ -87,6 +102,7 @@ public class TetrominoManager : MonoBehaviour
 
     private void NewTetromino()
     {
+        _isTransformed = false;
         if (_gameOver) return;
         GameObject nextPrefab;
         
@@ -103,9 +119,9 @@ public class TetrominoManager : MonoBehaviour
         }
         
         currentTetromino = Instantiate(nextPrefab, spawnPoint, Quaternion.identity);
-        TetrominoBehaviour currentTetrominoCode = currentTetromino.GetComponent<TetrominoBehaviour>();
-        currentTetrominoCode.SetReplay(_isReplay);
-        Transform[] children = currentTetrominoCode.children;
+        _currentTetrominoCode = currentTetromino.GetComponent<TetrominoBehaviour>();
+        _currentTetrominoCode.SetReplay(_isReplay);
+        Transform[] children = _currentTetrominoCode.children;
             
         for (int i = 0; i < children.Length; i++)
         {
@@ -118,6 +134,13 @@ public class TetrominoManager : MonoBehaviour
         }
     }
 
+    private void CreateTransformedTetromino(int cost)
+    {
+        Vector2 pos = currentTetromino.GetComponent<TetrominoBehaviour>().wholeRigidbody.position;
+        Destroy(currentTetromino);
+        currentTetromino = Instantiate(specialPrefab, pos, Quaternion.identity);
+    }
+    
     private void CheckProgress(float highestBlockY)
     {
         if (highestBlockY > highestY)

@@ -2,22 +2,64 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef4c94d8-d46d-4ce7-9555-490c50b9884b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TutorialManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TutorialManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/TransformCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/TransformCommand.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/riderModule.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Commands/CommandController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Commands/CommandController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LandedItems.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LandedItems.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Controllers/TetrominoManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Controllers/TetrominoManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Controllers/TutorialController.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Controllers/TutorialController.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Squares/Square.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Squares/Square.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/TetrominoManager.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/TetrominoManager.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainGame.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/I-Tetromino.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/I-Tetromino.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/O-Tetromino Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/O-Tetromino Variant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/S-Tetromino Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/S-Tetromino Variant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/T-Tetromino Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tetrominoes/T-Tetromino Variant.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/LandedItems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/LandedItems.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoInputs.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoInputs.inputactions" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PointsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PointsManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Floor.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Floor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Floor.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Floor.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/MainMenuBackground.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/MainMenuBackground.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/MainMenuBackground.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/MainMenuBackground.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Squares.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Squares.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Squares/BlueSquare.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Squares/BlueSquare.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Squares/BlueSquare.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Squares/BlueSquare.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Squares/GreenSquare.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Squares/GreenSquare.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Squares/GreenSquare.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Squares/GreenSquare.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Squares/LightBlueSquare.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Squares/LightBlueSquare.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Squares/LightBlueSquare.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Squares/LightBlueSquare.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Squares/OrangeSquare.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Squares/OrangeSquare.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Squares/OrangeSquare.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Squares/OrangeSquare.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Squares/PurpleSquare.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Squares/PurpleSquare.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Squares/PurpleSquare.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Squares/PurpleSquare.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Squares/RedSquare.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Squares/RedSquare.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Squares/RedSquare.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Squares/RedSquare.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Squares/YellowSquare.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Squares/YellowSquare.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Squares/YellowSquare.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Squares/YellowSquare.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tetrominoes.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Tetrominoes.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tetrominoes/I-Tetromino.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Tetrominoes/I-Tetromino.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tetrominoes/I-Tetromino.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Tetrominoes/I-Tetromino.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tetrominoes/J-Tetromino.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Tetrominoes/J-Tetromino.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tetrominoes/J-Tetromino.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Tetrominoes/J-Tetromino.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tetrominoes/L-Tetromino.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Tetrominoes/L-Tetromino.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tetrominoes/L-Tetromino.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Tetrominoes/L-Tetromino.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tetrominoes/O-Tetromino.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Tetrominoes/O-Tetromino.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tetrominoes/O-Tetromino.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Tetrominoes/O-Tetromino.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tetrominoes/S-Tetromino - Copy.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Tetrominoes/S-Tetromino - Copy.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tetrominoes/S-Tetromino - Copy.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Tetrominoes/S-Tetromino - Copy.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tetrominoes/S-Tetromino.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Tetrominoes/S-Tetromino.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tetrominoes/S-Tetromino.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Tetrominoes/S-Tetromino.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tetrominoes/T-Tetromino.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Tetrominoes/T-Tetromino.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tetrominoes/T-Tetromino.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Tetrominoes/T-Tetromino.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tetrominoes/Z-Tetromino.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Tetrominoes/Z-Tetromino.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tetrominoes/Z-Tetromino.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Tetrominoes/Z-Tetromino.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UI.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/UI.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UI/PointsText.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/UI/PointsText.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UI/PointsText.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/UI/PointsText.prefab.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +78,8 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B1BD7821-A9BD-482C-8BEC-887040B89E43/ea/6f946f9a/RaycastHit2D.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -54,7 +96,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/PointsCounter.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PointsManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/LandedItems.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/GameOverManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/TimedCommand.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/Command.cs" />
@@ -62,9 +103,12 @@
       <option value="$PROJECT_DIR$/Assets/Commands/RotateCommand.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/MainMenuManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/TutorialUIManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI/PointsManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/CommandController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/LandedItems.cs" />
+      <option value="$PROJECT_DIR$/Assets/Resources.Designer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/PointsManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Commands/TransformCommand.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoBehaviour.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TutorialManager.cs" />
     </changedPaths>
@@ -135,7 +179,9 @@
       <workItem from="1619628827806" duration="3663000" />
       <workItem from="1619701050222" duration="14225000" />
       <workItem from="1619789288485" duration="10922000" />
-      <workItem from="1619877123909" duration="4460000" />
+      <workItem from="1619877123909" duration="8778000" />
+      <workItem from="1619953183016" duration="228000" />
+      <workItem from="1619953456178" duration="10495000" />
     </task>
     <servers />
   </component>

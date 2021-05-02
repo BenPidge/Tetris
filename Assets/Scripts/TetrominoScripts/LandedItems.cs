@@ -30,7 +30,7 @@ public class LandedItems : MonoBehaviour
         TetrominoBehaviour.Landed -= AddSquares;
     }
 
-    private void AddSquares(Vector2[] positions, Sprite colour)
+    public void AddSquares(Vector2[] positions, Sprite colour)
     {
         _sprite.sprite = colour;
         float highestY = -200;
