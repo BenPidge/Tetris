@@ -193,6 +193,8 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
         return validRayHits == 0;
     }
     
+    
+    
 // Input-called methods
     public void OnMove(InputAction.CallbackContext directionContext)
     {

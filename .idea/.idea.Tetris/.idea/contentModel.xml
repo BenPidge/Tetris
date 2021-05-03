@@ -62,6 +62,11 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="SavingData" t="Include">
+            <e p="GameSave.cs" t="Include" />
+            <e p="SaveSystem.cs" t="Include" />
+            <e p="UserAccount.cs" t="Include" />
+          </e>
           <e p="TetrominoScripts" t="Include">
             <e p="LandedItems.cs" t="Include" />
             <e p="TetrominoBehaviour.cs" t="Include" />
@@ -69,6 +74,7 @@
             <e p="TutorialManager.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
+            <e p="AccountManager.cs" t="Include" />
             <e p="GameOverManager.cs" t="Include" />
             <e p="MainMenuManager.cs" t="Include" />
             <e p="PointsManager.cs" t="Include" />
