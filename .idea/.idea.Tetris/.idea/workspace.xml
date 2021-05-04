@@ -2,12 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef4c94d8-d46d-4ce7-9555-490c50b9884b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/AccountScrollerItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/AccountScrollerItem.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PauseManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PauseManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/AccountPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/AccountPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Controllers/TetrominoManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Controllers/TetrominoManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Floor.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Floor.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Squares/Square.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Squares/Square.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/MainMenuPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/MainMenuPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainGame.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/LandedItems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/LandedItems.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoInputs.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoInputs.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenuManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenuManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,28 +55,29 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/PointsCounter.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PointsManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI/GameOverManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/TimedCommand.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/Command.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/MoveCommand.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/RotateCommand.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI/MainMenuManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/TutorialUIManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/CommandController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/LandedItems.cs" />
       <option value="$PROJECT_DIR$/Assets/Resources.Designer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/PointsManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/TransformCommand.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TutorialManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoBehaviour.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SaveSystem.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SavingData/GameSave.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SavingData/UserAccount.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SavingData/SaveSystem.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI/AccountManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI/AccountScroller.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/AccountScrollerItem.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/AccountScroller.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/AccountManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/MainMenuManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/GameOverManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/LandedItems.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoBehaviour.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/PauseManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1o738ZM556PSnip2fUbAcHjyhZL" />
@@ -139,7 +150,7 @@
       <workItem from="1619953183016" duration="228000" />
       <workItem from="1619953456178" duration="14799000" />
       <workItem from="1620048139844" duration="5810000" />
-      <workItem from="1620131885314" duration="13870000" />
+      <workItem from="1620131885314" duration="17865000" />
     </task>
     <servers />
   </component>

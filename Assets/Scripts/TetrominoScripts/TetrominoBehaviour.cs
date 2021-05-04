@@ -18,6 +18,8 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
 
     public Transform[] children;
     public Rigidbody2D wholeRigidbody;
+    public bool paused;
+    
     private PolygonCollider2D _collider;
     private Transform _transform;
     private GameObject _gameObject;
@@ -38,6 +40,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
 
     private void Awake()
     {
+        paused = false;
         _gameObject = gameObject;
         wholeRigidbody = _gameObject.GetComponent<Rigidbody2D>();
         _collider = _gameObject.GetComponent<PolygonCollider2D>();
@@ -80,7 +83,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
 
     private void Descent(float dt)
     {
-        if (Time.time - _lastFallTime >= _manager.fallSpeed / dt)
+        if (Time.time - _lastFallTime >= _manager.fallSpeed / dt && !paused)
         {
             CommandController.ExecuteCommand(new MoveCommand(Time.timeSinceLevelLoad, 1, 1, 1));
             _lastFallTime = Time.time;
@@ -198,7 +201,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
 // Input-called methods
     public void OnMove(InputAction.CallbackContext directionContext)
     {
-        if (_onGround) return;
+        if (_onGround || paused) return;
         Vector2 direction = directionContext.ReadValue<Vector2>();
         if (direction.y < 0)
         {
@@ -212,7 +215,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
     
     public void OnRotate(InputAction.CallbackContext context)
     {
-        if (!_onGround && context.performed && !_replayTetromino)
+        if (!_onGround && !paused && !_replayTetromino && context.performed)
         {
             CommandController.ExecuteCommand(new RotateCommand(Time.timeSinceLevelLoad));
         }

@@ -61,6 +61,7 @@ MonoBehaviour:
   lineWidth: 19
   rowScoreInc: 100
   gameOverPanel: {fileID: 0}
+  pausePanel: {fileID: 0}
   transformCost: 150
   currentTetromino: {fileID: 0}
 --- !u!114 &6893841743382080820

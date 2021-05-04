@@ -10,6 +10,11 @@ public class MainMenuManager : MonoBehaviour
         StartCoroutine(LoadGame());
     }
 
+    public void ResumeGame()
+    {
+        StartCoroutine(LoadResumedGame());
+    }
+    
     public void StartTutorial()
     {
         StartCoroutine(LoadTutorial());
@@ -20,7 +25,20 @@ public class MainMenuManager : MonoBehaviour
         Application.Quit();
     }
 
+    
+    
     IEnumerator LoadGame()
+    {
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("MainGame");
+        
+        // returns control back to the caller until it's complete
+        while (!asyncOperation.isDone)
+        {
+            yield return null;
+        }
+    }
+
+    IEnumerator LoadResumedGame()
     {
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("MainGame");
         

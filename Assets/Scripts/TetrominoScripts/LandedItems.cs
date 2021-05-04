@@ -19,6 +19,7 @@ public class LandedItems : MonoBehaviour
     private void OnEnable()
     {
         GameOverManager.GameRestarted += ResetBoard;
+        PauseManager.GameRestarted += ResetBoard;
         GameOverManager.GameReplayed += ResetBoard;
         TetrominoBehaviour.Landed += AddSquares;
     }
@@ -26,6 +27,7 @@ public class LandedItems : MonoBehaviour
     private void OnDisable()
     {
         GameOverManager.GameRestarted -= ResetBoard;
+        PauseManager.GameRestarted -= ResetBoard;
         GameOverManager.GameReplayed -= ResetBoard;
         TetrominoBehaviour.Landed -= AddSquares;
     }

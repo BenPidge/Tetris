@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
@@ -20,6 +21,7 @@ public class TetrominoManager : MonoBehaviour
     [SerializeField] public int lineWidth;
     [SerializeField] public int rowScoreInc;
     [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject pausePanel;
     [SerializeField] private int transformCost;
 
     private readonly Queue<GameObject> _usedPrefabs = new Queue<GameObject>();
@@ -39,6 +41,7 @@ public class TetrominoManager : MonoBehaviour
         NewTetromino();
         _rows = new Dictionary<int, int>();
         gameOverPanel.gameObject.SetActive(false);
+        pausePanel.gameObject.SetActive(false);
     }
 
     private void OnEnable()
@@ -46,6 +49,8 @@ public class TetrominoManager : MonoBehaviour
         LandedItems.TetrominoPlaced += CheckProgress;
         GameOverManager.GameRestarted += ResetGame;
         GameOverManager.GameReplayed += BeginReplay;
+        PauseManager.GameRestarted += ResetGame;
+        PauseManager.Unpaused += UnpauseGame;
         TransformCommand.Transformed += CreateTransformedTetromino;
     }
 
@@ -54,6 +59,8 @@ public class TetrominoManager : MonoBehaviour
         LandedItems.TetrominoPlaced -= CheckProgress;
         GameOverManager.GameRestarted -= ResetGame;
         GameOverManager.GameReplayed -= BeginReplay;
+        PauseManager.GameRestarted -= ResetGame;
+        PauseManager.Unpaused -= UnpauseGame;
         TransformCommand.Transformed -= CreateTransformedTetromino;
     }
 
@@ -66,7 +73,7 @@ public class TetrominoManager : MonoBehaviour
 
     public void TransformTetromino()
     {
-        if (PointsManager.GetPoints() >= 150 && !_isTransformed)
+        if (PointsManager.GetPoints() >= 150 && !_isTransformed && !_currentTetrominoCode.paused)
         {
             _isTransformed = true;
             CommandController.ExecuteCommand(new TransformCommand(Time.timeSinceLevelLoad, transformCost));
@@ -89,8 +96,10 @@ public class TetrominoManager : MonoBehaviour
     {
         await new WaitUntil(() => _landedItems.landedSquares.Count == 0);
         gameOverPanel.gameObject.SetActive(false);
+        pausePanel.gameObject.SetActive(false);
         _gameOver = false;
         _isReplay = false;
+        Destroy(currentTetromino);
         NewTetromino();
     }
     
@@ -98,6 +107,17 @@ public class TetrominoManager : MonoBehaviour
     {
         _gameOver = true;
         gameOverPanel.gameObject.SetActive(true);
+    }
+
+    public void PauseGame()
+    {
+        _currentTetrominoCode.paused = true;
+        pausePanel.gameObject.SetActive(true);
+    }
+
+    private void UnpauseGame()
+    {
+        _currentTetrominoCode.paused = false;
     }
 
     private void NewTetromino()
