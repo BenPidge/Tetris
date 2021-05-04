@@ -2,20 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef4c94d8-d46d-4ce7-9555-490c50b9884b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SavingData.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SavingData/GameSave.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SavingData/GameSave.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SavingData/SaveSystem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SavingData/SaveSystem.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SavingData/UserAccount.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SavingData/UserAccount.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/AccountManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/AccountManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/AccountScrollerItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/AccountScrollerItem.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Squares/Square.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Squares/Square.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/AccountPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/AccountPanel.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoBehaviour.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +27,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B1BD7821-A9BD-482C-8BEC-887040B89E43/ea/6f946f9a/RaycastHit2D.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/AccountScroller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -68,10 +61,12 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TutorialManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoBehaviour.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SaveSystem.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SavingData/SaveSystem.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SavingData/UserAccount.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SavingData/GameSave.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SavingData/UserAccount.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SavingData/SaveSystem.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/AccountManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/AccountScroller.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/AccountScrollerItem.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1o738ZM556PSnip2fUbAcHjyhZL" />
@@ -144,6 +139,7 @@
       <workItem from="1619953183016" duration="228000" />
       <workItem from="1619953456178" duration="14799000" />
       <workItem from="1620048139844" duration="5810000" />
+      <workItem from="1620131885314" duration="13870000" />
     </task>
     <servers />
   </component>

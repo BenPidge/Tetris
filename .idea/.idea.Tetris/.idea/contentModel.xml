@@ -75,6 +75,8 @@
           </e>
           <e p="UI" t="Include">
             <e p="AccountManager.cs" t="Include" />
+            <e p="AccountScroller.cs" t="Include" />
+            <e p="AccountScrollerItem.cs" t="Include" />
             <e p="GameOverManager.cs" t="Include" />
             <e p="MainMenuManager.cs" t="Include" />
             <e p="PointsManager.cs" t="Include" />
