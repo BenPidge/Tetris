@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class SaveSystem : MonoBehaviour
 {
-    public static UserAccount CurrentAccount;
+    public static UserAccount CurrentAccount = null;
     public static List<UserAccount> Accounts = new List<UserAccount>();
     private static List<string> _accountNames = new List<string>();
 

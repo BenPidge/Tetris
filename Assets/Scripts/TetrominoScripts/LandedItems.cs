@@ -10,10 +10,12 @@ public class LandedItems : MonoBehaviour
 
     [SerializeField] private GameObject prefab;
     private SpriteRenderer _sprite;
+    private bool _resumeLoading;
 
     private void Awake()
     {
         _sprite = prefab.GetComponent<SpriteRenderer>();
+        _resumeLoading = false;
     }
 
     private void OnEnable()
@@ -55,8 +57,22 @@ public class LandedItems : MonoBehaviour
                 highestY = squareCollider.bounds.max.y;
             }
         }
-        
-        TetrominoPlaced?.Invoke(highestY);
+
+        if (!_resumeLoading)
+        {
+            TetrominoPlaced?.Invoke(highestY);
+        }
+    }
+
+    public void ResumeGame(List<(Vector2, Sprite)> blocks)
+    {
+        _resumeLoading = true;
+        for (int i = 0; i < blocks.Count; i++)
+        {
+            AddSquares(new Vector2[]{blocks[i].Item1}, blocks[i].Item2);
+        }
+
+        _resumeLoading = false;
     }
 
     private void ResetBoard(float timeStarted)

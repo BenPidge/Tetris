@@ -29,13 +29,19 @@ public class MainMenuManager : MonoBehaviour
     
     IEnumerator LoadGame()
     {
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("MainGame");
+        if (SaveSystem.CurrentAccount == null || SaveSystem.CurrentAccount.Save == null) yield break;
+        GameSave save = SaveSystem.CurrentAccount.Save;
         
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("MainGame");
+
         // returns control back to the caller until it's complete
         while (!asyncOperation.isDone)
         {
             yield return null;
         }
+
+        GetComponent<LandedItems>().ResumeGame(save.Blocks);
+        GetComponent<TetrominoManager>().ResumeGame(save.Points, save.ActiveTetromino);
     }
 
     IEnumerator LoadResumedGame()

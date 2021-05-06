@@ -79,6 +79,12 @@ public class TetrominoManager : MonoBehaviour
             CommandController.ExecuteCommand(new TransformCommand(Time.timeSinceLevelLoad, transformCost));
         }
     }
+
+    public void ResumeGame(int points, GameObject activeTetromino)
+    {
+        RowCleared?.Invoke(points);
+        currentTetromino = activeTetromino;
+    }
     
     
     
@@ -107,6 +113,10 @@ public class TetrominoManager : MonoBehaviour
     {
         _gameOver = true;
         gameOverPanel.gameObject.SetActive(true);
+        if (SaveSystem.CurrentAccount != null)
+        {
+            SaveSystem.CurrentAccount.UpdateHighScore(PointsManager.GetPoints());
+        }
     }
 
     public void PauseGame()
