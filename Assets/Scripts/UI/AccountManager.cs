@@ -11,6 +11,12 @@ public class AccountManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI currentAccountName;
     [SerializeField] private TextMeshProUGUI currentHighscoreNum;
     
+    public void Start()
+    {
+        SaveSystem.SetupSprites();
+        ChangeSelected(SaveSystem.CurrentAccount);
+    }
+    
     private void OnEnable()
     {
         AccountScrollerItem.AccountSelected += ChangeSelected;
@@ -32,10 +38,12 @@ public class AccountManager : MonoBehaviour
         NewAccountAdded?.Invoke(newAccount);
         ChangeSelected(newAccount);
         SaveSystem.AddAccount(newAccount);
+        SaveSystem.CurrentAccount = newAccount;
     }
     
     private void ChangeSelected(UserAccount account)
     {
+        if (account == null) return;
         SaveSystem.SetCurrentAccount(account);
         currentAccountName.text = account.getUsername();
         currentHighscoreNum.text = account.getHighscore().ToString();

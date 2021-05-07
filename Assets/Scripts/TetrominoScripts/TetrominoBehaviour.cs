@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Linq;
-using Packages.Rider.Editor.UnitTesting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(PolygonCollider2D))]

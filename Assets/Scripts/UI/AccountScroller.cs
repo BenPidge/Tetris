@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class AccountScroller : MonoBehaviour
 {
     [SerializeField] private GameObject prefab;
+    private List<string> names = new List<string>();
     
     private void Start()
     {
@@ -39,7 +40,10 @@ public class AccountScroller : MonoBehaviour
 
     private void AddAccountSelection(UserAccount newAccount)
     {
+        if (names.Contains(newAccount.getUsername())) return;
+        
         GameObject nextAcctSelection = Instantiate(prefab, transform);
         nextAcctSelection.GetComponent<AccountScrollerItem>().SetAccount(newAccount);
+        names.Add(newAccount.getUsername());
     }
 }

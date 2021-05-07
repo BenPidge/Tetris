@@ -4,14 +4,26 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public class SaveSystem : MonoBehaviour
 {
     public static UserAccount CurrentAccount = null;
     public static List<UserAccount> Accounts = new List<UserAccount>();
     private static List<string> _accountNames = new List<string>();
+    public static List<Sprite> Sprites = new List<Sprite>();
 
 
+    public static void SetupSprites()
+    {
+        Object[] spriteObjects = Resources.LoadAll("Sprites/Squares", typeof(Sprite));
+        Debug.Log(spriteObjects.Length);
+        for (int i = 0; i < spriteObjects.Length; i++)
+        {
+            Debug.Log(spriteObjects[i].name);
+            Sprites.Add((Sprite)spriteObjects[i]);
+        }
+    }
 
     public static void SetCurrentAccount(UserAccount account)
     {
@@ -28,8 +40,9 @@ public class SaveSystem : MonoBehaviour
             {
                 formatter.Serialize(stream, data);
             }
-            catch (SerializationException)
-            {
+            catch (SerializationException e)
+            { 
+                Debug.Log(e.Message);
             }
         }
     }
@@ -76,8 +89,9 @@ public class SaveSystem : MonoBehaviour
                     if (newAccount == null) throw new SerializationException();
                     AddAccount(newAccount);
                 }
-                catch (SerializationException)
-                {
+                catch (SerializationException e)
+                { 
+                    Debug.Log(e.Message);
                 }
             }
         }
@@ -98,6 +112,21 @@ public class SaveSystem : MonoBehaviour
     {
         Accounts.Add(newAccount);
         _accountNames.Add(newAccount.getUsername());
+    }
+
+    public static Sprite GetSprite(string name)
+    {
+        Debug.Log(Sprites[0].name);
+        Debug.Log(name);
+        for (int i = 0; i < Sprites.Count; i++)
+        {
+            if (Sprites[i].name == name)
+            {
+                return Sprites[i];
+            }
+        }
+
+        return null;
     }
     
     private static string ToPath(string file)

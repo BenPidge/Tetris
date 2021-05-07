@@ -26,6 +26,7 @@ public class TetrominoManager : MonoBehaviour
 
     private readonly Queue<GameObject> _usedPrefabs = new Queue<GameObject>();
     public GameObject currentTetromino;
+    public GameObject currentTetrominoPrefab;
     private TetrominoBehaviour _currentTetrominoCode;
     private LandedItems _landedItems;
     private Dictionary<int, int> _rows;
@@ -38,7 +39,14 @@ public class TetrominoManager : MonoBehaviour
         _gameOver = false;
         _isReplay = false;
         _landedItems = FindObjectOfType<LandedItems>();
-        NewTetromino();
+        if (MainMenuManager.isLoadingResume)
+        {
+            ResumeGame();
+        }
+        else
+        {
+            NewTetromino();
+        }
         _rows = new Dictionary<int, int>();
         gameOverPanel.gameObject.SetActive(false);
         pausePanel.gameObject.SetActive(false);
@@ -80,13 +88,15 @@ public class TetrominoManager : MonoBehaviour
         }
     }
 
-    public void ResumeGame(int points, GameObject activeTetromino)
+    
+    
+    private void ResumeGame()
     {
-        RowCleared?.Invoke(points);
-        currentTetromino = activeTetromino;
+        GameSave save = SaveSystem.CurrentAccount.Save;
+        _landedItems.ResumeGame(save.GETBlocks());
+        RowCleared?.Invoke(save.points);
+        currentTetromino = Instantiate(save.GETTetromino(), save.GETTetrominoPos(), Quaternion.identity);
     }
-    
-    
     
     private async void BeginReplay(float startTime)
     {
@@ -147,7 +157,8 @@ public class TetrominoManager : MonoBehaviour
             nextPrefab = prefabs[prefabPos];
             _usedPrefabs.Enqueue(nextPrefab);
         }
-        
+
+        currentTetrominoPrefab = nextPrefab;
         currentTetromino = Instantiate(nextPrefab, spawnPoint, Quaternion.identity);
         _currentTetrominoCode = currentTetromino.GetComponent<TetrominoBehaviour>();
         _currentTetrominoCode.SetReplay(_isReplay);

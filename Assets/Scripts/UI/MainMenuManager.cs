@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
+    public static bool isLoadingResume = false;
+
     public void StartGame()
     {
         StartCoroutine(LoadGame());
@@ -22,16 +25,20 @@ public class MainMenuManager : MonoBehaviour
     
     public void ExitGame()
     {
+        for (int i = 0; i < SaveSystem.Accounts.Count; i++)
+        {
+            SaveSystem.SaveAccount(SaveSystem.Accounts[i]);
+        }
         Application.Quit();
     }
 
     
     
-    IEnumerator LoadGame()
+    IEnumerator LoadResumedGame()
     {
         if (SaveSystem.CurrentAccount == null || SaveSystem.CurrentAccount.Save == null) yield break;
-        GameSave save = SaveSystem.CurrentAccount.Save;
-        
+        isLoadingResume = true;
+
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("MainGame");
 
         // returns control back to the caller until it's complete
@@ -39,13 +46,11 @@ public class MainMenuManager : MonoBehaviour
         {
             yield return null;
         }
-
-        GetComponent<LandedItems>().ResumeGame(save.Blocks);
-        GetComponent<TetrominoManager>().ResumeGame(save.Points, save.ActiveTetromino);
     }
 
-    IEnumerator LoadResumedGame()
+    IEnumerator LoadGame()
     {
+        isLoadingResume = false;
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("MainGame");
         
         // returns control back to the caller until it's complete
@@ -57,6 +62,7 @@ public class MainMenuManager : MonoBehaviour
     
     IEnumerator LoadTutorial()
     {
+        isLoadingResume = false;
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Tutorial");
         
         // returns control back to the caller until it's complete

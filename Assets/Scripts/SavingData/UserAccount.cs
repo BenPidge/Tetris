@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class UserAccount
+[Serializable]public class UserAccount
 {
     private readonly string _username;
     private int _highScore;

@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
@@ -22,7 +24,7 @@ public class PauseManager : MonoBehaviour
     public void ExitGame()
     {
         Save();
-        Application.Quit();
+        StartCoroutine(LoadMainMenu());
     }
 
     private void Save()
@@ -33,9 +35,21 @@ public class PauseManager : MonoBehaviour
         {
             blocks.Add((landedItems[i].transform.position, landedItems[i].GetComponent<SpriteRenderer>().sprite));
         }
-        
-        GameSave save = new GameSave(PointsManager.GetPoints(), blocks, 
-            FindObjectOfType<TetrominoManager>().currentTetromino);
+
+        TetrominoManager manager = FindObjectOfType<TetrominoManager>();
+        GameSave save = new GameSave(PointsManager.GetPoints(), blocks, manager.currentTetrominoPrefab, 
+            manager.currentTetromino.transform.position);
         SaveSystem.SaveGame(save);
+    }
+    
+    IEnumerator LoadMainMenu()
+    {
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("MainMenu");
+        
+        // returns control back to the caller until it's complete
+        while (!asyncOperation.isDone)
+        {
+            yield return null;
+        }
     }
 }
