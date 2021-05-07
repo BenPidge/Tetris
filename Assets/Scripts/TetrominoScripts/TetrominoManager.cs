@@ -95,7 +95,9 @@ public class TetrominoManager : MonoBehaviour
         GameSave save = SaveSystem.CurrentAccount.Save;
         _landedItems.ResumeGame(save.GETBlocks());
         RowCleared?.Invoke(save.points);
-        currentTetromino = Instantiate(save.GETTetromino(), save.GETTetrominoPos(), Quaternion.identity);
+        currentTetrominoPrefab = save.GETTetromino();
+        currentTetromino = Instantiate(currentTetrominoPrefab, save.GETTetrominoPos(), Quaternion.identity);
+        _currentTetrominoCode = currentTetromino.GetComponent<TetrominoBehaviour>();
     }
     
     private async void BeginReplay(float startTime)

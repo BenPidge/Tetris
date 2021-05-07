@@ -7,20 +7,25 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     public static bool isLoadingResume = false;
+    [SerializeField] private TransitionManager transition;
 
     public void StartGame()
     {
-        StartCoroutine(LoadGame());
+        isLoadingResume = false;
+        StartCoroutine(transition.LoadSceneWithAnim("MainGame"));
     }
 
     public void ResumeGame()
     {
-        StartCoroutine(LoadResumedGame());
+        if (SaveSystem.CurrentAccount == null || SaveSystem.CurrentAccount.Save == null) return;
+        isLoadingResume = true;
+        StartCoroutine(transition.LoadSceneWithAnim("MainGame"));
     }
     
     public void StartTutorial()
     {
-        StartCoroutine(LoadTutorial());
+        isLoadingResume = false;
+        StartCoroutine(transition.LoadSceneWithAnim("Tutorial"));
     }
     
     public void ExitGame()
@@ -30,45 +35,5 @@ public class MainMenuManager : MonoBehaviour
             SaveSystem.SaveAccount(SaveSystem.Accounts[i]);
         }
         Application.Quit();
-    }
-
-    
-    
-    IEnumerator LoadResumedGame()
-    {
-        if (SaveSystem.CurrentAccount == null || SaveSystem.CurrentAccount.Save == null) yield break;
-        isLoadingResume = true;
-
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("MainGame");
-
-        // returns control back to the caller until it's complete
-        while (!asyncOperation.isDone)
-        {
-            yield return null;
-        }
-    }
-
-    IEnumerator LoadGame()
-    {
-        isLoadingResume = false;
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("MainGame");
-        
-        // returns control back to the caller until it's complete
-        while (!asyncOperation.isDone)
-        {
-            yield return null;
-        }
-    }
-    
-    IEnumerator LoadTutorial()
-    {
-        isLoadingResume = false;
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Tutorial");
-        
-        // returns control back to the caller until it's complete
-        while (!asyncOperation.isDone)
-        {
-            yield return null;
-        }
     }
 }

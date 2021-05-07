@@ -8,6 +8,7 @@ public class PauseManager : MonoBehaviour
 {
     public static event Action<float> GameRestarted;
     public static event Action Unpaused;
+    [SerializeField] private TransitionManager transition;
     
     public void Restart()
     {
@@ -24,7 +25,7 @@ public class PauseManager : MonoBehaviour
     public void ExitGame()
     {
         Save();
-        StartCoroutine(LoadMainMenu());
+        StartCoroutine(transition.LoadSceneWithAnim("MainMenu"));
     }
 
     private void Save()
@@ -40,16 +41,5 @@ public class PauseManager : MonoBehaviour
         GameSave save = new GameSave(PointsManager.GetPoints(), blocks, manager.currentTetrominoPrefab, 
             manager.currentTetromino.transform.position);
         SaveSystem.SaveGame(save);
-    }
-    
-    IEnumerator LoadMainMenu()
-    {
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("MainMenu");
-        
-        // returns control back to the caller until it's complete
-        while (!asyncOperation.isDone)
-        {
-            yield return null;
-        }
     }
 }

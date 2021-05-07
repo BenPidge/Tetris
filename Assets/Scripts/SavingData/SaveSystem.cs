@@ -17,10 +17,8 @@ public class SaveSystem : MonoBehaviour
     public static void SetupSprites()
     {
         Object[] spriteObjects = Resources.LoadAll("Sprites/Squares", typeof(Sprite));
-        Debug.Log(spriteObjects.Length);
         for (int i = 0; i < spriteObjects.Length; i++)
         {
-            Debug.Log(spriteObjects[i].name);
             Sprites.Add((Sprite)spriteObjects[i]);
         }
     }

@@ -8,6 +8,7 @@ public class GameOverManager : MonoBehaviour
 {
     public static event Action<float> GameRestarted;
     public static event Action<float> GameReplayed;
+    [SerializeField] private TransitionManager transition;
     public void Restart()
     {
         CommandController.Empty();
@@ -25,17 +26,6 @@ public class GameOverManager : MonoBehaviour
         {
             SaveSystem.CurrentAccount.UpdateHighScore(PointsManager.GetPoints());
         }
-        StartCoroutine(LoadMainMenu());
-    }
-    
-    IEnumerator LoadMainMenu()
-    {
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("MainMenu");
-        
-        // returns control back to the caller until it's complete
-        while (!asyncOperation.isDone)
-        {
-            yield return null;
-        }
+        StartCoroutine(transition.LoadSceneWithAnim("MainMenu"));
     }
 }
