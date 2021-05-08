@@ -7,25 +7,23 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Debug = UnityEngine.Debug;
 
-public class TutorialManager : MonoBehaviour
+[RequireComponent(typeof(AudioSource))]
+public class TutorialManager : GameManager
 {
     public static event Action<int> RowCleared;
     
     //queues are not supported as serializable, so these must be lists
-    [SerializeField] private float highestY;
-    [SerializeField] private List<GameObject> prefabs;
-    [SerializeField] private Vector2 spawnPoint;
     [SerializeField] private List<string> promptText;
     [SerializeField] private TextMeshProUGUI promptTextBox;
     [SerializeField] private List<TutorialStep> commands;
-    [SerializeField] private GameObject gameOverPanel;
-    [SerializeField] private GameObject specialPrefab;
+    [SerializeField] private SoundEffect helperClick;
     
-    public GameObject currentTetromino;
     private Queue<Action> _callOrder = new Queue<Action>();
     private bool _keepExecuting;
-    private LandedItems _landedItems;
-
+    private AudioSource _audioSource;
+    
+    
+    
     [Serializable]
     public class TutorialStep
     {
@@ -37,7 +35,8 @@ public class TutorialManager : MonoBehaviour
     
     private void Start()
     {
-        _landedItems = FindObjectOfType<LandedItems>();
+        _audioSource = GetComponent<AudioSource>();
+        LandedItems = FindObjectOfType<LandedItems>();
         SetupPriorSquares();
 
         gameOverPanel.gameObject.SetActive(false);
@@ -61,28 +60,29 @@ public class TutorialManager : MonoBehaviour
 
     private void SetupPriorSquares()
     {
-        _landedItems.AddSquares(new []{new Vector2(2.5f, -3.5f), new Vector2(3.5f, -3.5f), 
+        LandedItems.AddSquares(new []{new Vector2(2.5f, -3.5f), new Vector2(3.5f, -3.5f), 
                 new Vector2(3.5f, -2.5f), new Vector2(4.5f, -2.5f)}, 
             Resources.Load<Sprite>("Sprites/Squares/GreenSquare"));
-        _landedItems.AddSquares(new []{new Vector2(7.5f, -3.5f), new Vector2(6.5f, -3.5f), 
+        LandedItems.AddSquares(new []{new Vector2(7.5f, -3.5f), new Vector2(6.5f, -3.5f), 
                 new Vector2(5.5f, -3.5f), new Vector2(4.5f, -3.5f)}, 
             Resources.Load<Sprite>("Sprites/Squares/BlueSquare"));
-        _landedItems.AddSquares(new []{new Vector2(9.5f, -3.5f), new Vector2(8.5f, -3.5f), 
+        LandedItems.AddSquares(new []{new Vector2(9.5f, -3.5f), new Vector2(8.5f, -3.5f), 
                 new Vector2(9.5f, -2.5f), new Vector2(8.5f, -2.5f)}, 
             Resources.Load<Sprite>("Sprites/Squares/YellowSquare"));
-        _landedItems.AddSquares(new []{new Vector2(-3.5f, -3.5f), new Vector2(-4.5f, -3.5f), 
+        LandedItems.AddSquares(new []{new Vector2(-3.5f, -3.5f), new Vector2(-4.5f, -3.5f), 
                 new Vector2(-5.5f, -3.5f), new Vector2(-5.5f, -2.5f)}, 
             Resources.Load<Sprite>("Sprites/Squares/OrangeSquare"));
-        _landedItems.AddSquares(new []{new Vector2(-6.5f, -3.5f), new Vector2(-7.5f, -3.5f), 
+        LandedItems.AddSquares(new []{new Vector2(-6.5f, -3.5f), new Vector2(-7.5f, -3.5f), 
                 new Vector2(-8.5f, -3.5f), new Vector2(-8.5f, -2.5f)}, 
             Resources.Load<Sprite>("Sprites/Squares/LightBlueSquare"));
-        _landedItems.AddSquares(new []{new Vector2(-3.5f, -2.5f), 
+        LandedItems.AddSquares(new []{new Vector2(-3.5f, -2.5f), 
                 new Vector2(-2.5f, -2.5f), new Vector2(-1.5f, -3.5f), new Vector2(-2.5f, -3.5f)}, 
             Resources.Load<Sprite>("Sprites/Squares/RedSquare"));
     }
     
     public void ExecuteNextStep()
     {
+        helperClick.PlayEffect(_audioSource);
         if (!_keepExecuting && promptText.Count > 0)
         {
             _keepExecuting = true;
@@ -129,7 +129,7 @@ public class TutorialManager : MonoBehaviour
         currentTetromino.GetComponent<TetrominoBehaviour>().SetReplay(true);
     }
 
-    public void TransformTetromino()
+    public override void TransformTetromino()
     {
         RowCleared?.Invoke(100);
         CommandController.ExecuteCommand(new TransformCommand(Time.timeSinceLevelLoad, 150));
@@ -148,11 +148,11 @@ public class TutorialManager : MonoBehaviour
     IEnumerator RemoveRow(int row)
     {
         yield return new WaitForSeconds(0.5f);
-        _landedItems.RemoveRow(row);
+        LandedItems.RemoveRow(row);
         int highestPotentialRow = (int) Math.Floor(highestY);
         for (int i = row + 1; i <= highestPotentialRow; i++)
         {
-            _landedItems.LowerRow(i);
+            LandedItems.LowerRow(i);
         }
         RowCleared?.Invoke(100);
         yield return new WaitForSeconds(0.5f);

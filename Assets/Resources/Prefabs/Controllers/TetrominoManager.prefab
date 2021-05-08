@@ -56,14 +56,17 @@ MonoBehaviour:
   - {fileID: 3347208691523534684, guid: bca6dfd96ebe61940a77ca51856658d1, type: 3}
   specialPrefab: {fileID: 1952241282801960047, guid: c6dc632383eb8ec4496a224d290f6432,
     type: 3}
+  gameOverPanel: {fileID: 3016636405398407193, guid: d9831354d2699ca428bdc102d99f9420,
+    type: 3}
+  currentTetromino: {fileID: 0}
   fallSpeed: 1
   fallSpeedIncrease: 0.25
   lineWidth: 19
   rowScoreInc: 100
-  gameOverPanel: {fileID: 0}
-  pausePanel: {fileID: 0}
+  pausePanel: {fileID: 2728893801223011228, guid: 2a16af89e4883664597c9cdc8f068dd1,
+    type: 3}
   transformCost: 150
-  currentTetromino: {fileID: 0}
+  currentTetrominoPrefab: {fileID: 0}
 --- !u!114 &6893841743382080820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +164,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 4653525f-1801-44db-9b53-33b5f9d20dd2
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 83a5314b-bd35-4447-a13a-e59297ca45cb
+    m_ActionName: Player/Pause[/Keyboard/p]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

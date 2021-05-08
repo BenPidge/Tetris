@@ -62,12 +62,18 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="Audio" t="Include">
+            <e p="MenuSounds.cs" t="Include" />
+            <e p="SoundEffect.cs" t="Include" />
+            <e p="TetrominoSounds.cs" t="Include" />
+          </e>
           <e p="SavingData" t="Include">
             <e p="GameSave.cs" t="Include" />
             <e p="SaveSystem.cs" t="Include" />
             <e p="UserAccount.cs" t="Include" />
           </e>
           <e p="TetrominoScripts" t="Include">
+            <e p="GameManager.cs" t="Include" />
             <e p="LandedItems.cs" t="Include" />
             <e p="TetrominoBehaviour.cs" t="Include" />
             <e p="TetrominoManager.cs" t="Include" />
@@ -81,6 +87,7 @@
             </e>
             <e p="GameOverManager.cs" t="Include" />
             <e p="MainMenuManager.cs" t="Include" />
+            <e p="MenuManager.cs" t="Include" />
             <e p="PauseManager.cs" t="Include" />
             <e p="PointsManager.cs" t="Include" />
             <e p="TransitionManager.cs" t="Include" />

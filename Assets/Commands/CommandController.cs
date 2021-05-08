@@ -7,16 +7,17 @@ public class CommandController : MonoBehaviour
     private static bool _isTutorial;
     
     private static List<Command> _commands = new List<Command>();
-    private static TetrominoManager _tetrominoManager;
-    private static TutorialManager _tutorialManager;
-    private static int _activeManager;
+    private static GameManager _manager;
     private static float _timer;
 
     private void Start()
     {
-        _tetrominoManager = FindObjectOfType<TetrominoManager>();
-        _tutorialManager = FindObjectOfType<TutorialManager>();
-        _isTutorial = _tutorialManager != null;
+        _manager = FindObjectOfType<TutorialManager>();
+        _isTutorial = _manager != null;
+        if (!_isTutorial)
+        {
+            _manager = FindObjectOfType<TetrominoManager>();
+        }
     }
 
     private void OnEnable()
@@ -34,19 +35,7 @@ public class CommandController : MonoBehaviour
     public static void ExecuteCommand(Command command)
     {
         _commands.Add(command);
-        command.Execute(GetBehaviour());
-    }
-
-    public void RunOldestCommand()
-    {
-        if (_tetrominoManager.currentTetromino == null) return;
-        _commands[0].Execute(GetBehaviour());
-        _commands.RemoveAt(0);
-    }
-
-    public static void Empty()
-    {
-        _commands.Clear();
+        command.Execute(_manager.currentTetromino.GetComponent<TetrominoBehaviour>());
     }
 
     private void RunCommands()
@@ -56,11 +45,16 @@ public class CommandController : MonoBehaviour
             Invoke(nameof(RunOldestCommand), _commands[i].TimeExecuted);
         }
     }
-
-    private static TetrominoBehaviour GetBehaviour()
+    
+    public void RunOldestCommand()
     {
-        return (_isTutorial
-            ? _tutorialManager.currentTetromino.GetComponent<TetrominoBehaviour>()
-            : _tetrominoManager.currentTetromino.GetComponent<TetrominoBehaviour>());
+        if (_manager.currentTetromino == null) return;
+        _commands[0].Execute(_manager.currentTetromino.GetComponent<TetrominoBehaviour>());
+        _commands.RemoveAt(0);
+    }
+
+    public static void Empty()
+    {
+        _commands.Clear();
     }
 }

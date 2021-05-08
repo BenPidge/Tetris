@@ -7,28 +7,22 @@ using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
-public class TetrominoManager : MonoBehaviour
+public class TetrominoManager : GameManager
 {
     public static event Action<int> RowCleared;
     public static event Action ReplayBegun;
-
-    [SerializeField] private float highestY;
-    [SerializeField] public Vector2 spawnPoint;
-    [SerializeField] private List<GameObject> prefabs;
-    [SerializeField] private GameObject specialPrefab;
+    public static event Action TetrominoTransformed;
+    
     [SerializeField] public float fallSpeed;
     [SerializeField] public float fallSpeedIncrease;
     [SerializeField] public int lineWidth;
     [SerializeField] public int rowScoreInc;
-    [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private int transformCost;
 
     private readonly Queue<GameObject> _usedPrefabs = new Queue<GameObject>();
-    public GameObject currentTetromino;
     public GameObject currentTetrominoPrefab;
     private TetrominoBehaviour _currentTetrominoCode;
-    private LandedItems _landedItems;
     private Dictionary<int, int> _rows;
     private static bool _gameOver;
     private static bool _isReplay;
@@ -38,7 +32,7 @@ public class TetrominoManager : MonoBehaviour
     {
         _gameOver = false;
         _isReplay = false;
-        _landedItems = FindObjectOfType<LandedItems>();
+        LandedItems = FindObjectOfType<LandedItems>();
         if (MainMenuManager.isLoadingResume)
         {
             ResumeGame();
@@ -79,12 +73,13 @@ public class TetrominoManager : MonoBehaviour
         fallSpeed += fallSpeedIncrease;
     }
 
-    public void TransformTetromino()
+    public override void TransformTetromino()
     {
         if (PointsManager.GetPoints() >= 150 && !_isTransformed && !_currentTetrominoCode.paused)
         {
             _isTransformed = true;
             CommandController.ExecuteCommand(new TransformCommand(Time.timeSinceLevelLoad, transformCost));
+            TetrominoTransformed?.Invoke();
         }
     }
 
@@ -93,7 +88,7 @@ public class TetrominoManager : MonoBehaviour
     private void ResumeGame()
     {
         GameSave save = SaveSystem.CurrentAccount.Save;
-        _landedItems.ResumeGame(save.GETBlocks());
+        LandedItems.ResumeGame(save.GETBlocks());
         RowCleared?.Invoke(save.points);
         currentTetrominoPrefab = save.GETTetromino();
         currentTetromino = Instantiate(currentTetrominoPrefab, save.GETTetrominoPos(), Quaternion.identity);
@@ -102,7 +97,7 @@ public class TetrominoManager : MonoBehaviour
     
     private async void BeginReplay(float startTime)
     {
-        await new WaitUntil(() => _landedItems.landedSquares.Count == 0);
+        await new WaitUntil(() => LandedItems.landedSquares.Count == 0);
         gameOverPanel.gameObject.SetActive(false);
         _gameOver = false;
         _isReplay = true;
@@ -112,7 +107,7 @@ public class TetrominoManager : MonoBehaviour
 
     private async void ResetGame(float startTime)
     {
-        await new WaitUntil(() => _landedItems.landedSquares.Count == 0);
+        await new WaitUntil(() => LandedItems.landedSquares.Count == 0);
         gameOverPanel.gameObject.SetActive(false);
         pausePanel.gameObject.SetActive(false);
         _gameOver = false;
@@ -168,7 +163,7 @@ public class TetrominoManager : MonoBehaviour
             
         for (int i = 0; i < children.Length; i++)
         {
-            if (_landedItems.checkSquare(children[i].position))
+            if (LandedItems.checkSquare(children[i].position))
             {
                 Destroy(currentTetromino);
                 GameOver();
@@ -202,9 +197,9 @@ public class TetrominoManager : MonoBehaviour
         _rows.Clear();
         List<int> fullRows = new List<int>();
         
-        for (int i = 0; i < _landedItems.landedSquares.Count; i++)
+        for (int i = 0; i < LandedItems.landedSquares.Count; i++)
         {
-            int pos = (int) Math.Floor(_landedItems.landedSquares[i].transform.position.y);
+            int pos = (int) Math.Floor(LandedItems.landedSquares[i].transform.position.y);
             if (_rows.ContainsKey(pos))
             {
                 _rows[pos] += 1;
@@ -228,11 +223,11 @@ public class TetrominoManager : MonoBehaviour
 
     private void ClearRow(int row)
     {
-        _landedItems.RemoveRow(row);
+        LandedItems.RemoveRow(row);
         int highestPotentialRow = (int) Math.Floor(highestY);
         for (int i = row + 1; i <= highestPotentialRow; i++)
         {
-            _landedItems.LowerRow(i);
+            LandedItems.LowerRow(i);
         }
         RowCleared?.Invoke(rowScoreInc);
     }

@@ -181,6 +181,8 @@ MonoBehaviour:
   defaultFallSpeedMod: 1
   enhancedFallSpeedMod: 4
   children: []
+  wholeRigidbody: {fileID: 0}
+  paused: 0
 --- !u!60 &6935476511982461105
 PolygonCollider2D:
   m_ObjectHideFlags: 0

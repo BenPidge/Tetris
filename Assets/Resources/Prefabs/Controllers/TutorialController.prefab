@@ -44,11 +44,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highestY: 0
+  spawnPoint: {x: 0.5, y: 4.5}
   prefabs:
   - {fileID: 4174449227811596875, guid: acc4041580475ed4d8283ee1ef8f49ab, type: 3}
   - {fileID: 440188892551962292, guid: 521047f4f00fb4e42b37141d04ded053, type: 3}
   - {fileID: 3347208691523534684, guid: bca6dfd96ebe61940a77ca51856658d1, type: 3}
-  spawnPoint: {x: 0.5, y: 4.5}
+  specialPrefab: {fileID: 1952241282801960047, guid: c6dc632383eb8ec4496a224d290f6432,
+    type: 3}
+  gameOverPanel: {fileID: 3016636405398407193, guid: d9831354d2699ca428bdc102d99f9420,
+    type: 3}
+  currentTetromino: {fileID: 0}
   promptText:
   - One of 7 tetrominoes randomly spawn at a constant position at the start of the
     game.
@@ -242,7 +247,4 @@ MonoBehaviour:
     inputs: []
   - stepType: LoadMenu
     inputs: []
-  gameOverPanel: {fileID: 0}
-  specialPrefab: {fileID: 1952241282801960047, guid: c6dc632383eb8ec4496a224d290f6432,
-    type: 3}
-  currentTetromino: {fileID: 0}
+  helperClick: {fileID: 11400000, guid: 712666b6a1fb70947a38687d7de08e51, type: 2}

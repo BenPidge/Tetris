@@ -10,11 +10,13 @@ public class AccountManager : MonoBehaviour
     public static event Action<UserAccount> NewAccountAdded;
     [SerializeField] private TextMeshProUGUI currentAccountName;
     [SerializeField] private TextMeshProUGUI currentHighscoreNum;
+    protected MenuSounds Sounds;
     
     public void Start()
     {
         SaveSystem.SetupSprites();
         ChangeSelected(SaveSystem.CurrentAccount);
+        Sounds = FindObjectOfType<MenuSounds>();
     }
     
     private void OnEnable()
@@ -31,6 +33,7 @@ public class AccountManager : MonoBehaviour
 
     public void AddAccount()
     {
+        Sounds.PlayBtnClick();
         string username = GetComponentInChildren<InputField>().text;
         username = SaveSystem.ValidName(username);
         UserAccount newAccount = new UserAccount(SaveSystem.ValidName(username));

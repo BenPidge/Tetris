@@ -4,20 +4,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseManager : MonoBehaviour
+public class PauseManager : MenuManager
 {
     public static event Action<float> GameRestarted;
     public static event Action Unpaused;
-    [SerializeField] private TransitionManager transition;
     
     public void Restart()
     {
+        Sounds.PlayBtnClick();
         CommandController.Empty();
         GameRestarted?.Invoke(Time.timeSinceLevelLoad);
     }
 
     public void Resume()
     {
+        Sounds.PlayBtnClick();
         Unpaused?.Invoke();
         gameObject.SetActive(false);
     }
@@ -25,7 +26,7 @@ public class PauseManager : MonoBehaviour
     public void ExitGame()
     {
         Save();
-        StartCoroutine(transition.LoadSceneWithAnim("MainMenu"));
+        BtnClicked("MainMenu");
     }
 
     private void Save()

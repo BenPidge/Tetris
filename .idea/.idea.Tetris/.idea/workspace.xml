@@ -2,27 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef4c94d8-d46d-4ce7-9555-490c50b9884b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/TransitionManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/TransitionManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/MenuSounds.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/MenuSounds.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/GameManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/GameManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MenuManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MenuManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tetris/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Commands/CommandController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Commands/CommandController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Controllers/LandedItems.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Controllers/LandedItems.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Controllers/TetrominoManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Controllers/TetrominoManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Controllers/TutorialController.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Controllers/TutorialController.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Squares/Square.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Squares/Square.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/AccountPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/AccountPanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/ScrollerItemPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/ScrollerItemPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Tetrominoes/Dot-Tetromino.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Tetrominoes/Dot-Tetromino.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Tetrominoes/I-Tetromino.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Tetrominoes/I-Tetromino.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Tetrominoes/J-Tetromino.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Tetrominoes/J-Tetromino.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Tetrominoes/L-Tetromino Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Tetrominoes/L-Tetromino Variant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Tetrominoes/T-Tetromino Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Tetrominoes/T-Tetromino Variant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/MainMenuPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/MainMenuPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/MainMenuBackground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/MainMenuBackground.png.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainGame.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SavingData/SaveSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SavingData/SaveSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/AccountManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/AccountManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/AccountScroller.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/AccountScroller.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/AccountScrollerItem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/AccountScrollerItem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/GameOverManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/GameOverManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TutorialManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TutorialManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenuManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenuManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PauseManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PauseManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +47,7 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Audio/TetrominoSounds.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B1BD7821-A9BD-482C-8BEC-887040B89E43/ea/6f946f9a/RaycastHit2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -64,11 +71,9 @@
       <option value="$PROJECT_DIR$/Assets/Commands/MoveCommand.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/RotateCommand.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/TutorialUIManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Commands/CommandController.cs" />
       <option value="$PROJECT_DIR$/Assets/Resources.Designer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/PointsManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Commands/TransformCommand.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TutorialManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SaveSystem.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/AccountScrollerItem.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/LandedItems.cs" />
@@ -79,10 +84,21 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/AccountScroller.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SavingData/SaveSystem.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/TransitionManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI/MainMenuManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/PauseManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/GameOverManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Commands/CommandController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SoundEffects.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SoundEffect.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Audio/TetrominoTransformSound.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TetrominoManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Audio/TetrominoSounds.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoScripts/TutorialManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/MenuSounds.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Audio/SoundEffect.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Audio/MenuSounds.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/MenuManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/MainMenuManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1o738ZM556PSnip2fUbAcHjyhZL" />
@@ -165,7 +181,8 @@
       <workItem from="1620048139844" duration="5810000" />
       <workItem from="1620131885314" duration="17865000" />
       <workItem from="1620302305981" duration="3256000" />
-      <workItem from="1620387051688" duration="13690000" />
+      <workItem from="1620387051688" duration="19572000" />
+      <workItem from="1620480899501" duration="9549000" />
     </task>
     <servers />
   </component>

@@ -142,6 +142,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 4653525f-1801-44db-9b53-33b5f9d20dd2
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0e656c4c-b6b8-405a-8c07-0b63a8eb57e2
+    m_ActionName: Player/Transform[/Mouse/rightButton,/Pen/barrel1,/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 83a5314b-bd35-4447-a13a-e59297ca45cb
+    m_ActionName: Player/Pause[/Keyboard/p]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -184,6 +192,8 @@ MonoBehaviour:
   defaultFallSpeedMod: 1
   enhancedFallSpeedMod: 4
   children: []
+  wholeRigidbody: {fileID: 0}
+  paused: 0
 --- !u!60 &6893070920197942975
 PolygonCollider2D:
   m_ObjectHideFlags: 0

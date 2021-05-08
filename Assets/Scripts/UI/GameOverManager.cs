@@ -4,19 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameOverManager : MonoBehaviour
+public class GameOverManager : MenuManager
 {
     public static event Action<float> GameRestarted;
     public static event Action<float> GameReplayed;
-    [SerializeField] private TransitionManager transition;
     public void Restart()
     {
+        Sounds.PlayBtnClick();
         CommandController.Empty();
         GameRestarted?.Invoke(Time.timeSinceLevelLoad);
     }
 
     public void Replay()
     {
+        Sounds.PlayBtnClick();
         GameReplayed?.Invoke(Time.timeSinceLevelLoad);
     }
     
@@ -26,6 +27,6 @@ public class GameOverManager : MonoBehaviour
         {
             SaveSystem.CurrentAccount.UpdateHighScore(PointsManager.GetPoints());
         }
-        StartCoroutine(transition.LoadSceneWithAnim("MainMenu"));
+        BtnClicked("MainMenu");
     }
 }
