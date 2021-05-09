@@ -91,7 +91,8 @@ public class TetrominoManager : GameManager
         LandedItems.ResumeGame(save.GETBlocks());
         RowCleared?.Invoke(save.points);
         currentTetrominoPrefab = save.GETTetromino();
-        currentTetromino = Instantiate(currentTetrominoPrefab, save.GETTetrominoPos(), Quaternion.identity);
+        currentTetromino = Instantiate(currentTetrominoPrefab, 
+            save.GETTetrominoPos(), Quaternion.identity);
         _currentTetrominoCode = currentTetromino.GetComponent<TetrominoBehaviour>();
     }
     

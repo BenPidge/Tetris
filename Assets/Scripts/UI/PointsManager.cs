@@ -22,6 +22,7 @@ public class PointsManager : MonoBehaviour
     {
         TetrominoManager.RowCleared += IncrementScore;
         TutorialManager.RowCleared += IncrementScore;
+        PauseManager.GameRestarted += ResetPoints;
         GameOverManager.GameRestarted += ResetPoints;
         GameOverManager.GameReplayed += ResetPoints;
         TransformCommand.Transformed += DecreaseScore;
@@ -31,6 +32,7 @@ public class PointsManager : MonoBehaviour
     {
         TetrominoManager.RowCleared -= IncrementScore;
         TutorialManager.RowCleared -= IncrementScore;
+        PauseManager.GameRestarted -= ResetPoints;
         GameOverManager.GameRestarted -= ResetPoints;
         GameOverManager.GameReplayed -= ResetPoints;
         TransformCommand.Transformed -= DecreaseScore;

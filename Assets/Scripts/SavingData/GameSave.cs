@@ -11,7 +11,8 @@ using UnityEngine.Serialization;
     private string _activeTetromino;
     private (float, float) _tetrominoPos;
 
-    public GameSave(int points, List<(Vector2, Sprite)> blocks, GameObject tetromino, Vector2 position)
+    public GameSave(int points, List<(Vector2, Sprite)> blocks, 
+        GameObject tetromino, Vector2 position)
     {
         this.points = points;
         _activeTetromino = tetromino.name;
@@ -19,7 +20,8 @@ using UnityEngine.Serialization;
         
         for (int i = 0; i < blocks.Count; i++)
         {
-            _blocks.Add((blocks[i].Item1.x, blocks[i].Item1.y, blocks[i].Item2.name));
+            _blocks.Add((blocks[i].Item1.x, blocks[i].Item1.y, 
+                blocks[i].Item2.name));
         }
     }
 

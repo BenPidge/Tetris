@@ -31,6 +31,7 @@ public class PauseManager : MenuManager
 
     private void Save()
     {
+        if (SaveSystem.CurrentAccount == null) return;
         List<(Vector2, Sprite)> blocks = new List<(Vector2, Sprite)>();
         List<GameObject> landedItems = FindObjectOfType<LandedItems>().landedSquares;
         for (int i = 0; i < landedItems.Count; i++)

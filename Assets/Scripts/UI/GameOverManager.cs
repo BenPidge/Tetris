@@ -26,6 +26,7 @@ public class GameOverManager : MenuManager
         if (SaveSystem.CurrentAccount != null)
         {
             SaveSystem.CurrentAccount.UpdateHighScore(PointsManager.GetPoints());
+            SaveSystem.SaveAccount(SaveSystem.CurrentAccount);
         }
         BtnClicked("MainMenu");
     }

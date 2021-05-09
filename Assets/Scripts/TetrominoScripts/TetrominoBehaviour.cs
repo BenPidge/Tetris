@@ -62,8 +62,7 @@ public class TetrominoBehaviour : MonoBehaviour, TetrisEntity
 
     private void Update()
     {
-        if (_onGround) return;
-        if (!_alive) return;
+        if (_onGround || !_alive) return;
 
         // time if its actively being pushed down, the float otherwise
         if (!_replayTetromino)
